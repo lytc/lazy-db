@@ -15,7 +15,7 @@ abstract class AbstractPermission extends AbstractModel
             'primaryKey'    => true,
             'foreignKey'    => false,
             'default'       => NULL,
-            'autoIncrement' => false
+            'autoIncrement' => true
         ],
         'name' => [
             'type'          => 'int',

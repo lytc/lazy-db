@@ -113,12 +113,12 @@ EOD;
                 $name = $row['Field'];
                 $columns[$name] = [
                     'type'          => $matches[1],
-                    'length'        => $matches[2]? (int) $matches[2] : null,
+                    'length'        => isset($matches[2])? (int) $matches[2] : null,
                     'nullable'      => $row['Null'] == 'YES',
                     'primaryKey'    => $row['Key'] == 'PRI',
                     'foreignKey'    => $row['Key'] == 'MUL',
-                    'default'       => $row['default'],
-                    'autoIncrement' => $row['auto_increment'] == 'auto_increment'
+                    'default'       => $row['Default'],
+                    'autoIncrement' => $row['Extra'] == 'auto_increment'
                 ];
             }
 
@@ -142,7 +142,7 @@ EOD;
 
         $associations = [];
         foreach ($rows as $row) {
-            $associations[$row['TABLE_NAME']] || $associations[$row['TABLE_NAME']] = [];
+            isset($associations[$row['TABLE_NAME']]) || $associations[$row['TABLE_NAME']] = [];
             $associations[$row['TABLE_NAME']][$row['COLUMN_NAME']] = $row['REFERENCED_TABLE_NAME'];
         }
 
@@ -151,9 +151,9 @@ EOD;
             foreach ($assocs as $foreignKey => $referenceTableName) {
                 $modelName = $this->tables[$tableName];
                 $referenceModelName = $this->tables[$referenceTableName];
-                $this->manyToOne[$modelName] || ($this->manyToOne[$modelName] = []);
+                isset($this->manyToOne[$modelName]) || ($this->manyToOne[$modelName] = []);
                 $this->manyToOne[$modelName][$this->inflector->camelize(preg_replace('/_id$/', '', $foreignKey))] = [$foreignKey, $this->tables[$referenceTableName]];
-                $this->oneToMany[$referenceModelName] || ($this->oneToMany[$referenceModelName] = []);
+                isset($this->oneToMany[$referenceModelName]) || ($this->oneToMany[$referenceModelName] = []);
                 $this->oneToMany[$referenceModelName][$this->inflector->camelize($tableName)] = [$foreignKey, $modelName];
             }
         }
@@ -167,7 +167,7 @@ EOD;
                         }
 
                         $refModelName = $this->inflector->pluralize($referenceModelOption2[1]);
-                        $this->manyToMany[$referenceModelOption[1]] || ($this->manyToMany[$referenceModelOption[1]] = []);
+                        isset($this->manyToMany[$referenceModelOption[1]]) || ($this->manyToMany[$referenceModelOption[1]] = []);
                         $this->manyToMany[$referenceModelOption[1]][$refModelName] = [$referenceModelOption[0], $referenceModelOption2[0], $modelName];
                     }
                 }
@@ -340,7 +340,6 @@ EOD;
                 '{$oneToMany}'                  => $oneToMany,
                 '{$manyToOne}'                  => $manyToOne,
                 '{$manyToMany}'                 => $manyToMany,
-                '{$associations}'               => $associations
             ];
 
             $baseModelClassContent = str_replace(array_keys($params), $params, $this->abstractModelTemplate);

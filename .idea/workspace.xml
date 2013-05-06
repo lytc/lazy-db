@@ -7,7 +7,7 @@
     <file path="/Pdo.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367474230673" ignored="false" />
     <file path="/Stmt.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367663334383" ignored="false" />
     <file path="/phpunit.xml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367848888032" ignored="false" />
-    <file path="/bootstrap.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367848758840" ignored="false" />
+    <file path="/bootstrap.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367850985534" ignored="false" />
     <file path="/StmtTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367551776389" ignored="false" />
     <file path="/DbSample.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849262515" ignored="false" />
     <file path="/PdoTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839595286" ignored="false" />
@@ -26,9 +26,9 @@
     <file path="/JoinTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367819418201" ignored="false" />
     <file path="/LimitTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818442211" ignored="false" />
     <file path="/OrderTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818722269" ignored="false" />
-    <file path="/AbstractModel.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839416588" ignored="false" />
-    <file path="/ModelTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839448668" ignored="false" />
-    <file path="/Generator.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367814793887" ignored="false" />
+    <file path="/AbstractModel.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856003761" ignored="false" />
+    <file path="/ModelTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856286654" ignored="false" />
+    <file path="/Generator.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367851169673" ignored="false" />
     <file path="/GeneratorTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367488015077" ignored="false" />
     <file path="/Collection.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367476124231" ignored="false" />
     <file path="/Exception.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367578362898" ignored="false" />
@@ -60,12 +60,12 @@
     <file path="$PROJECT_DIR$/../hoinhanduc.com/application/modules/default/views/layouts/default.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367675962980" ignored="false" />
     <file path="/default.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367675888436" ignored="false" />
     <file path="/sample-database.sql" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367740955507" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Permissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/UserPermissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Posts.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Orders.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Products.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Users.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Permissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/UserPermissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Posts.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Orders.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Products.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Users.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
     <file path="/LazyLoadTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367806961152" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/classes/imagemagick.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/classes/cuser.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367813599679" ignored="false" />
@@ -101,11 +101,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="AbstractModel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04109589">
+            <state line="265" column="9" selection-start="4720" selection-end="4857" vertical-scroll-proportion="-6.9">
+              <folding>
+                <element signature="e#33#65#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ModelTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="182" column="18" selection-start="6159" selection-end="6159" vertical-scroll-proportion="-22.291666">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="72" selection-start="187" selection-end="187" vertical-scroll-proportion="0.16438356">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LazyLoadTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="51" selection-start="1239" selection-end="1239" vertical-scroll-proportion="-20.75">
+              <folding>
+                <element signature="e#37#54#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,22 +151,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Order.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Select.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Where.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Having.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Expr.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Stmt.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Exception/Exception.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Exception/InvalidArgumentException.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/lazy/tests/bootstrap.php" />
         <option value="$PROJECT_DIR$/lazy/tests/phpunit.xml" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/lazy/tests/bootstrap.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Delete.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractModel.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ModelTest.php" />
       </list>
     </option>
   </component>
@@ -190,6 +221,120 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LazyTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lazy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,52 +466,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="32" selection-start="381" selection-end="381" vertical-scroll-proportion="-0.21104816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Select.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="323" column="20" selection-start="6653" selection-end="6653" vertical-scroll-proportion="0.1713881">
-          <folding>
-            <element signature="e#31#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="23" selection-start="3112" selection-end="3112" vertical-scroll-proportion="-0.7634561">
-          <folding>
-            <element signature="e#31#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Where.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="30" selection-start="679" selection-end="679" vertical-scroll-proportion="0.6175637">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Having.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="30" selection-start="683" selection-end="683" vertical-scroll-proportion="-17.208334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Expr.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="21" selection-start="161" selection-end="161" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="21" selection-start="1362" selection-end="1368" vertical-scroll-proportion="-18.458334">
@@ -409,20 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="395" selection-end="395" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="66" selection-end="79" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.5524079">
@@ -432,7 +517,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04109589">
+        <state line="2" column="2" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="32" selection-start="62" selection-end="62" vertical-scroll-proportion="0.04249292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="355" column="41" selection-start="13956" selection-end="13956" vertical-scroll-proportion="-20.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="0" selection-start="3485" selection-end="3485" vertical-scroll-proportion="-19.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="221" column="45" selection-start="4366" selection-end="4366" vertical-scroll-proportion="-138.125">
+          <folding>
+            <element signature="e#31#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="265" column="9" selection-start="4720" selection-end="4857" vertical-scroll-proportion="-6.9">
+          <folding>
+            <element signature="e#33#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="51" selection-start="1239" selection-end="1239" vertical-scroll-proportion="-20.75">
+          <folding>
+            <element signature="e#37#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ModelTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="18" selection-start="6159" selection-end="6159" vertical-scroll-proportion="-22.291666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="72" selection-start="187" selection-end="187" vertical-scroll-proportion="0.16438356">
           <folding />
         </state>
       </provider>

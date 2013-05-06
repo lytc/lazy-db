@@ -139,7 +139,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => [], 'bar' => []]));
+            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
 
         $model = new $mockModelClass(['foo' => 1, 'bar' => 'bar']);
         $this->assertFalse($model->isNew());
@@ -153,19 +153,19 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      */
     public function testMethodId()
     {
-        $mockModel = $this->getMockForAbstractClass('\Lazy\Db\Model\AbstractModel',
-            [], '', false, true, true, ['primaryKey', '__get']);
+        $mockModelClass = $this->getMockClass('\Lazy\Db\Model\AbstractModel',
+            ['primaryKey', 'columnSchema', 'getPdo']);
 
-        $mockModel::staticExpects($this->any())
+        $mockModelClass::staticExpects($this->any())
             ->method('primaryKey')
             ->will($this->returnValue('foo'));
 
-        $mockModel->expects($this->once())
-            ->method('__get')
-            ->with($this->equalTo('foo'))
-            ->will($this->returnValue(10));
+        $mockModelClass::staticExpects($this->any())
+            ->method('columnSchema')
+            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
 
-        $this->assertSame(10, $mockModel->id());
+        $model = new $mockModelClass(['foo' => 10]);
+        $this->assertSame(10, $model->id());
     }
 
     /**
@@ -182,7 +182,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => [], 'bar' => []]));
+            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
 
         $model = new $mockModelClass(['foo' => 1]);
         $this->assertInternalType('array', $model->toArray());
@@ -206,7 +206,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => [], 'bar' => []]));
+            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
 
         $model = new $mockModelClass(['foo' => 1, 'bar' => 'bar']);
         $this->assertSame(['foo' => 1, 'bar' => 'bar'], $model->toArray());

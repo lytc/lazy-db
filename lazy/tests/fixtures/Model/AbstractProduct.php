@@ -15,7 +15,7 @@ abstract class AbstractProduct extends AbstractModel
             'primaryKey'    => true,
             'foreignKey'    => false,
             'default'       => NULL,
-            'autoIncrement' => false
+            'autoIncrement' => true
         ],
         'name' => [
             'type'          => 'varchar',
@@ -41,7 +41,7 @@ abstract class AbstractProduct extends AbstractModel
             'nullable'      => false,
             'primaryKey'    => false,
             'foreignKey'    => false,
-            'default'       => NULL,
+            'default'       => '0',
             'autoIncrement' => false
         ],
         'created_time' => [
@@ -59,7 +59,7 @@ abstract class AbstractProduct extends AbstractModel
             'nullable'      => false,
             'primaryKey'    => false,
             'foreignKey'    => false,
-            'default'       => NULL,
+            'default'       => 'CURRENT_TIMESTAMP',
             'autoIncrement' => false
         ],
     ];

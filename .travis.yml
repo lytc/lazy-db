@@ -6,4 +6,4 @@ language: php
 php:
   - 5.4
 
-script: phpunit -c lazy/tests/phpunit.xml lazy/tests
+script: phpunit -c lazy/tests/phpunit.xml --testsuite Lazy_Db_Test_Suite

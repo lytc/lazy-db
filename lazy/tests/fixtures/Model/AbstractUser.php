@@ -15,7 +15,7 @@ abstract class AbstractUser extends AbstractModel
             'primaryKey'    => true,
             'foreignKey'    => false,
             'default'       => NULL,
-            'autoIncrement' => false
+            'autoIncrement' => true
         ],
         'name' => [
             'type'          => 'varchar',
@@ -68,7 +68,7 @@ abstract class AbstractUser extends AbstractModel
             'nullable'      => false,
             'primaryKey'    => false,
             'foreignKey'    => false,
-            'default'       => NULL,
+            'default'       => 'CURRENT_TIMESTAMP',
             'autoIncrement' => false
         ],
     ];

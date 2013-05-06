@@ -168,7 +168,6 @@ class Delete
     public function reset()
     {
         !$this->where || $this->where->reset();
-        !$this->having || $this->having->reset();
         !$this->order || $this->order->reset();
         !$this->limit || $this->limit->reset();
 

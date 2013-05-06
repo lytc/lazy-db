@@ -99,6 +99,8 @@ abstract class AbstractModel
      */
     protected $collection;
 
+    protected $initialize;
+
     /**
      * @param array $data
      * @param AbstractCollection $collection
@@ -107,8 +109,10 @@ abstract class AbstractModel
     {
         if (array_key_exists(static::primaryKey(), $data)) {
             $this->isExistingRow = true;
+            $this->initialize = true;
         }
         $this->fromArray($data);
+        $this->initialize = false;
         $this->collection = $collection;
     }
 
@@ -188,7 +192,7 @@ abstract class AbstractModel
     /**
      * @return \Lazy\Db\Pdo
      */
-    abstract public static function getPdo();
+    public static function getPdo(){}
 
     /**
      * @return Select
@@ -256,7 +260,10 @@ abstract class AbstractModel
      */
     public function id()
     {
-        return $this->{static::primaryKey()};
+        $primaryKey = static::primaryKey();
+        if (isset($this->data[$primaryKey])) {
+            return $this->data[$primaryKey];
+        }
     }
 
     /**
@@ -311,7 +318,11 @@ abstract class AbstractModel
             }
 
             if ($this->isExistingRow) {
-                $this->changedData[$nameUnderscore] = $value;
+                if ($this->initialize) {
+                    $this->data[$nameUnderscore] = $value;
+                } else {
+                    $this->changedData[$nameUnderscore] = $value;
+                }
             } else {
                 $this->data[$nameUnderscore] = $value;
             }
@@ -372,7 +383,7 @@ abstract class AbstractModel
                 }
                 return $pair[$this->id()];
             } else {
-                $select->column($nameUnderscore)->where([static::$primaryKey => $this->id()])->limit(1);
+                $select->column($nameUnderscore)->where([static::primaryKey() => $this->id()])->limit(1);
                 $value = $select->fetchColumn();
                 $this->set($nameUnderscore, $value);
                 return $value;
@@ -512,7 +523,7 @@ abstract class AbstractModel
     {
         if (!$this->sqlSelect) {
             $this->sqlSelect = static::createSqlSelect();
-            $this->sqlSelect->where(['id' => $this->id()]);
+            $this->sqlSelect->where([static::primaryKey() => $this->id()]);
         }
 
         return $this->sqlSelect;
@@ -536,7 +547,7 @@ abstract class AbstractModel
     {
         if (!$this->sqlUpdate) {
             $this->sqlUpdate = new Update(static::getPdo(), static::$tableName);
-            $this->sqlUpdate->where([static::$primaryKey => $this->id()]);
+            $this->sqlUpdate->where([static::primaryKey() => $this->id()]);
         }
         return $this->sqlUpdate;
     }
@@ -548,7 +559,7 @@ abstract class AbstractModel
     {
         if (!$this->sqlDelete) {
             $this->sqlDelete = new Delete(static::getPdo(), static::$tableName);
-            $this->sqlDelete->where([static::$primaryKey => $this->id()]);
+            $this->sqlDelete->where([static::primaryKey() => $this->id()]);
         }
         return $this->sqlDelete;
     }
