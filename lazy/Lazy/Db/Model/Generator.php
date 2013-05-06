@@ -12,11 +12,11 @@ class Generator
     protected $namespace;
     protected $tables;
     protected $columnsSchema;
-    protected $lazyLoad = ['text', 'mediumtext', 'longtext'];
+    protected $lazyLoad = array('text', 'mediumtext', 'longtext');
     protected $associations;
-    protected $manyToOne = [];
-    protected $oneToMany = [];
-    protected $manyToMany = [];
+    protected $manyToOne = array();
+    protected $oneToMany = array();
+    protected $manyToMany = array();
     protected $inflector;
 
     protected $abstractBaseModelTemplate = <<<'EOD'
@@ -96,7 +96,7 @@ EOD;
         $stmt = $this->pdo->query($query);
         $this->tables = $stmt->fetchAll(\PDO::FETCH_COLUMN, 0);
 
-        $this->tables = array_combine($this->tables, array_map([$this->inflector, 'classify'], $this->tables));
+        $this->tables = array_combine($this->tables, array_map(array($this->inflector, 'classify'), $this->tables));
     }
 
     protected function initColumnSchema()
@@ -104,14 +104,14 @@ EOD;
         $query = "SHOW COLUMNS FROM %s";
         foreach ($this->tables as $tableName => $modelClassName)
         {
-            $columns = [];
+            $columns = array();
             $stmt = $this->pdo->query(sprintf($query, $tableName));
             $stmt->execute();
             $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             foreach ($rows as $row) {
                 preg_match('/^(\w+)\(?(\d+)?\)?/', $row['Type'], $matches);
                 $name = $row['Field'];
-                $columns[$name] = [
+                $columns[$name] = array(
                     'type'          => $matches[1],
                     'length'        => isset($matches[2])? (int) $matches[2] : null,
                     'nullable'      => $row['Null'] == 'YES',
@@ -119,7 +119,7 @@ EOD;
                     'foreignKey'    => $row['Key'] == 'MUL',
                     'default'       => $row['Default'],
                     'autoIncrement' => $row['Extra'] == 'auto_increment'
-                ];
+                );
             }
 
             $this->columnsSchema[$tableName] = $columns;
@@ -140,9 +140,9 @@ EOD;
         $stmt = $this->pdo->query($query);
         $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        $associations = [];
+        $associations = array();
         foreach ($rows as $row) {
-            isset($associations[$row['TABLE_NAME']]) || $associations[$row['TABLE_NAME']] = [];
+            isset($associations[$row['TABLE_NAME']]) || $associations[$row['TABLE_NAME']] = array();
             $associations[$row['TABLE_NAME']][$row['COLUMN_NAME']] = $row['REFERENCED_TABLE_NAME'];
         }
 
@@ -151,10 +151,10 @@ EOD;
             foreach ($assocs as $foreignKey => $referenceTableName) {
                 $modelName = $this->tables[$tableName];
                 $referenceModelName = $this->tables[$referenceTableName];
-                isset($this->manyToOne[$modelName]) || ($this->manyToOne[$modelName] = []);
-                $this->manyToOne[$modelName][$this->inflector->camelize(preg_replace('/_id$/', '', $foreignKey))] = [$foreignKey, $this->tables[$referenceTableName]];
-                isset($this->oneToMany[$referenceModelName]) || ($this->oneToMany[$referenceModelName] = []);
-                $this->oneToMany[$referenceModelName][$this->inflector->camelize($tableName)] = [$foreignKey, $modelName];
+                isset($this->manyToOne[$modelName]) || ($this->manyToOne[$modelName] = array());
+                $this->manyToOne[$modelName][$this->inflector->camelize(preg_replace('/_id$/', '', $foreignKey))] = array($foreignKey, $this->tables[$referenceTableName]);
+                isset($this->oneToMany[$referenceModelName]) || ($this->oneToMany[$referenceModelName] = array());
+                $this->oneToMany[$referenceModelName][$this->inflector->camelize($tableName)] = array($foreignKey, $modelName);
             }
         }
         // manyToMany
@@ -167,8 +167,8 @@ EOD;
                         }
 
                         $refModelName = $this->inflector->pluralize($referenceModelOption2[1]);
-                        isset($this->manyToMany[$referenceModelOption[1]]) || ($this->manyToMany[$referenceModelOption[1]] = []);
-                        $this->manyToMany[$referenceModelOption[1]][$refModelName] = [$referenceModelOption[0], $referenceModelOption2[0], $modelName];
+                        isset($this->manyToMany[$referenceModelOption[1]]) || ($this->manyToMany[$referenceModelOption[1]] = array());
+                        $this->manyToMany[$referenceModelOption[1]][$refModelName] = array($referenceModelOption[0], $referenceModelOption2[0], $modelName);
                     }
                 }
             }
@@ -238,9 +238,9 @@ EOD;
             // generate columns schema
             # find longest column name
             $longestColumnNameLength = max(array_map('strlen', array_keys($this->columnsSchema[$tableName])));
-            $columns = '[' . PHP_EOL;
-            $columnsSchema = '[' . PHP_EOL;
-            $immediatelySelectColumns = [];
+            $columns = 'array(' . PHP_EOL;
+            $columnsSchema = 'array(' . PHP_EOL;
+            $immediatelySelectColumns = array();
             foreach ($this->columnsSchema[$tableName] as $columnName => $schemas) {
                 if (!in_array($schemas['type'], $this->lazyLoad)) {
                     $immediatelySelectColumns[] = $columnName;
@@ -250,7 +250,7 @@ EOD;
                 $columnNameCamelize = lcfirst($this->inflector->camelize($columnName));
                 $space = str_repeat(' ', $longestColumnNameLength - strlen($columnNameCamelize));
                 $columns .= "        '$columnNameCamelize' $space=> '$columnName'," . PHP_EOL;
-                $columnSchema = [];
+                $columnSchema = array();
                 foreach ($schemas as $key => $value) {
                     switch (gettype($value)) {
                         case 'boolean':
@@ -270,12 +270,12 @@ EOD;
                     $space = str_repeat(' ', 13 - strlen($key));
                     $columnSchema[] = "            '$key' $space=> $value";
                 }
-                $columnsSchema .= "        '$columnName' => [" . PHP_EOL;
+                $columnsSchema .= "        '$columnName' => array(" . PHP_EOL;
                 $columnsSchema .= implode(',' . PHP_EOL, $columnSchema);
-                $columnsSchema .= PHP_EOL . '        ],' . PHP_EOL;
+                $columnsSchema .= PHP_EOL . '        ),' . PHP_EOL;
             }
-            $columns .= '    ]';
-            $columnsSchema .= '    ]';
+            $columns .= '    )';
+            $columnsSchema .= '    )';
 
             # generate association
             $spaces12 = "\n            ";
@@ -286,14 +286,14 @@ EOD;
                 # find longest key
                 $maxKeyLength = max(array_map(function($key) {return strlen($key);}, array_keys($this->oneToMany[$modelName])));
 
-                $oneToMany = '[' . PHP_EOL;
+                $oneToMany = 'array(' . PHP_EOL;
                 foreach ($this->oneToMany[$modelName] as $key => $referenceModelOption) {
 
-                    $oneToMany .= "        '$key' => [{$spaces12}'model' => '\\$namespace\\$referenceModelOption[1]',{$spaces12}'key'   => '$referenceModelOption[0]'{$spaces8}]," . PHP_EOL;
+                    $oneToMany .= "        '$key' => array({$spaces12}'model' => '\\$namespace\\$referenceModelOption[1]',{$spaces12}'key'   => '$referenceModelOption[0]'{$spaces8})," . PHP_EOL;
                 }
-                $oneToMany .= '    ]';
+                $oneToMany .= '    )';
             } else {
-                $oneToMany = '[]';
+                $oneToMany = 'array()';
             }
 
             # many to one
@@ -301,14 +301,14 @@ EOD;
                 # find longest key
                 $maxKeyLength = max(array_map(function($key) {return strlen($key);}, array_keys($this->manyToOne[$modelName])));
 
-                $manyToOne = '[' . PHP_EOL;
+                $manyToOne = 'array(' . PHP_EOL;
                 foreach ($this->manyToOne[$modelName] as $key => $referenceModelOption) {
                     $spaces = str_repeat(' ', $maxKeyLength - strlen($key));
-                    $manyToOne .= "        '$key' => [{$spaces12}'model' => '\\$namespace\\$referenceModelOption[1]',{$spaces12}'key'   => '$referenceModelOption[0]'{$spaces8}]," . PHP_EOL;
+                    $manyToOne .= "        '$key' => array({$spaces12}'model' => '\\$namespace\\$referenceModelOption[1]',{$spaces12}'key'   => '$referenceModelOption[0]'{$spaces8})," . PHP_EOL;
                 }
-                $manyToOne .= '    ]';
+                $manyToOne .= '    )';
             } else {
-                $manyToOne = '[]';
+                $manyToOne = 'array()';
             }
 
             # many to many
@@ -316,19 +316,19 @@ EOD;
                 # find longest key
                 $maxKeyLength = max(array_map(function($key) {return strlen($key);}, array_keys($this->manyToMany[$modelName])));
 
-                $manyToMany = '[' . PHP_EOL;
+                $manyToMany = 'array(' . PHP_EOL;
                 foreach ($this->manyToMany[$modelName] as $key => $referenceModelOption) {
                     $refModel = $this->inflector->singularize($key);
-                    $manyToMany .= "        '$key' => [{$spaces12}'model'         => '\\$namespace\\$refModel',{$spaces12}'throughModel'  => '\\$namespace\\$referenceModelOption[2]',{$spaces12}'leftKey'       => '$referenceModelOption[0]',{$spaces12}'rightKey'      => '$referenceModelOption[1]'{$spaces8}]," . PHP_EOL;
+                    $manyToMany .= "        '$key' => array({$spaces12}'model'         => '\\$namespace\\$refModel',{$spaces12}'throughModel'  => '\\$namespace\\$referenceModelOption[2]',{$spaces12}'leftKey'       => '$referenceModelOption[0]',{$spaces12}'rightKey'      => '$referenceModelOption[1]'{$spaces8})," . PHP_EOL;
                 }
-                $manyToMany .= '    ]';
+                $manyToMany .= '    )';
             } else {
-                $manyToMany = '[]';
+                $manyToMany = 'array()';
             }
 
             $collectionClassName = ucfirst($this->inflector->camelize($tableName));
 
-            $params = [
+            $params = array(
                 '{$namespace}'                  => $namespace,
                 '{$primaryKey}'                 => $primaryKey,
                 '{$tableName}'                  => $tableName,
@@ -336,11 +336,11 @@ EOD;
                 '{$collectionClassName}'        => $collectionClassName,
                 '{$columnsSchema}'              => $columnsSchema,
                 '{$columns}'                    => $columns,
-                '{$immediatelySelectColumns}'   => '[' . PHP_EOL . "        '" . implode("'," . PHP_EOL . "        '", $immediatelySelectColumns) . "'" . PHP_EOL . '    ]',
+                '{$immediatelySelectColumns}'   => 'array(' . PHP_EOL . "        '" . implode("'," . PHP_EOL . "        '", $immediatelySelectColumns) . "'" . PHP_EOL . '    )',
                 '{$oneToMany}'                  => $oneToMany,
                 '{$manyToOne}'                  => $manyToOne,
                 '{$manyToMany}'                 => $manyToMany,
-            ];
+            );
 
             $baseModelClassContent = str_replace(array_keys($params), $params, $this->abstractModelTemplate);
             file_put_contents($baseModelFile, $baseModelClassContent);
@@ -354,11 +354,11 @@ EOD;
 
             // create collection
             $collectionFile = $collectionDirectory . '/' . $collectionClassName . '.php';
-            $params = [
+            $params = array(
                 '{$namespace}'              => $namespace,
                 '{$collectionClassName}'    => $collectionClassName,
                 '{$modelName}'              => $modelName,
-            ];
+            );
             $collectionClassContent = str_replace(array_keys($params), $params, $this->collectionTemplate);
             file_put_contents($collectionFile, $collectionClassContent);
         }
@@ -486,15 +486,15 @@ class Inflector {
             '/(x|ch|ss|sh)es$/i' => '\1',
             '/(m)ovies$/i' => '\1\2ovie',
             '/(s)eries$/i' => '\1\2eries',
-            '/([^aeiouy]|qu)ies$/i' => '\1y',
-            '/([lr])ves$/i' => '\1f',
+            '/(array(^aeiouy)|qu)ies$/i' => '\1y',
+            '/(array(lr))ves$/i' => '\1f',
             '/(tive)s$/i' => '\1',
             '/(hive)s$/i' => '\1',
             '/(drive)s$/i' => '\1',
-            '/([^fo])ves$/i' => '\1fe',
+            '/(array(^fo))ves$/i' => '\1fe',
             '/(^analy)ses$/i' => '\1sis',
             '/(analy|diagno|^ba|(p)arenthe|(p)rogno|(s)ynop|(t)he)ses$/i' => '\1\2sis',
-            '/([ti])a$/i' => '\1um',
+            '/(array(ti))a$/i' => '\1um',
             '/(p)eople$/i' => '\1\2erson',
             '/(m)en$/i' => '\1an',
             '/(c)hildren$/i' => '\1\2hild',
@@ -823,7 +823,7 @@ class Inflector {
      */
     public static function underscore($camelCasedWord) {
         if (!($result = self::_cache(__FUNCTION__, $camelCasedWord))) {
-            $result = strtolower(preg_replace('/(?<=\\w)([A-Z])/', '_\\1', $camelCasedWord));
+            $result = strtolower(preg_replace('/(?<=\\w)(array(A-Z))/', '_\\1', $camelCasedWord));
             self::_cache(__FUNCTION__, $camelCasedWord, $result);
         }
         return $result;

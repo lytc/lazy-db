@@ -23,7 +23,7 @@ class Join
     /**
      * @var array
      */
-    protected $data = [];
+    protected $data = array();
 
     /**
      * @param string $type
@@ -33,11 +33,11 @@ class Join
      */
     protected function _join($type, $table, $conditions)
     {
-        $this->data[] = [
+        $this->data[] = array(
             'type' => $type,
             'table' => $table,
             'conditions' => $conditions
-        ];
+        );
 
         return $this;
     }
@@ -87,7 +87,7 @@ class Join
      */
     public function reset()
     {
-        $this->data = [];
+        $this->data = array();
         return $this;
     }
 
@@ -100,7 +100,7 @@ class Join
             return '';
         }
 
-        $joins = [];
+        $joins = array();
         foreach ($this->data as $option) {
             $type = $option['type'];
             $table = $option['table'];

@@ -42,17 +42,17 @@ abstract class AbstractModel
     /**
      * @var array
      */
-    protected static $oneToMany = [];
+    protected static $oneToMany = array();
 
     /**
      * @var array
      */
-    protected static $manyToOne = [];
+    protected static $manyToOne = array();
 
     /**
      * @var array
      */
-    protected static $manyToMany = [];
+    protected static $manyToMany = array();
 
     /**
      * @var bool
@@ -62,17 +62,17 @@ abstract class AbstractModel
     /**
      * @var array
      */
-    protected $data = [];
+    protected $data = array();
 
     /**
      * @var array
      */
-    protected $changedData = [];
+    protected $changedData = array();
 
     /**
      * @var array
      */
-    protected $associationsData = [];
+    protected $associationsData = array();
 
     /**
      * @var \Lazy\Db\Sql\Select
@@ -105,7 +105,7 @@ abstract class AbstractModel
      * @param array $data
      * @param AbstractCollection $collection
      */
-    public function __construct(array $data = [], AbstractCollection $collection = null)
+    public function __construct(array $data = array(), AbstractCollection $collection = null)
     {
         if (array_key_exists(static::primaryKey(), $data)) {
             $this->isExistingRow = true;
@@ -227,7 +227,7 @@ abstract class AbstractModel
     public static function first($where = null)
     {
         if (is_numeric($where)) {
-            $where = [static::$tableName . '.' . static::$primaryKey => $where];
+            $where = array(static::$tableName . '.' . static::$primaryKey => $where);
         }
 
         $select = static::createSqlSelect();
@@ -284,10 +284,13 @@ abstract class AbstractModel
             if (array_key_exists($columnName, static::columnSchema())) {
                 $this->set($columnName, $value);
             } else {
-                if (array_key_exists($columnName, static::oneToMany())) {
-                    $refModel = static::oneToMany()[$columnName]['model'];
-                }elseif (array_key_exists($columnName, static::manyToMany())) {
-                    $refModel = static::manyToMany()[$columnName]['model'];
+                $oneToMany = static::oneToMany();
+                $manyToMany = static::manyToMany();
+
+                if (array_key_exists($columnName, $oneToMany)) {
+                    $refModel = $oneToMany[$columnName]['model'];
+                }elseif (array_key_exists($columnName, $manyToMany)) {
+                    $refModel = $manyToMany[$columnName]['model'];
                 }
 
                 if (isset($refModel)) {
@@ -309,8 +312,9 @@ abstract class AbstractModel
     {
         $nameUnderscore = $this->underscore($name);
 
-        if (array_key_exists($nameUnderscore, static::columnSchema())) {
-            switch (static::columnSchema()[$nameUnderscore]['type']) {
+        $columnsSchema = static::columnSchema();
+        if (array_key_exists($nameUnderscore, $columnsSchema)) {
+            switch ($columnsSchema[$nameUnderscore]['type']) {
                 case 'int':
                 case 'tinyint':
                     $value = (int) $value;
@@ -376,14 +380,14 @@ abstract class AbstractModel
             if ($this->collection) {
                 $primaryKey = static::$primaryKey;
                 $collectionIds = $this->collection->fetchColumn(static::$primaryKey);
-                $select->column([static::$primaryKey, $nameUnderscore])->where(["$primaryKey IN(?)" => $collectionIds]);
+                $select->column(array(static::$primaryKey, $nameUnderscore))->where(array("$primaryKey IN(?)" => $collectionIds));
                 $pair = $select->fetchAll(\PDO::FETCH_KEY_PAIR);
                 foreach ($pair as $id => $value) {
                     $this->collection->get($id)->set($nameUnderscore, $value);
                 }
                 return $pair[$this->id()];
             } else {
-                $select->column($nameUnderscore)->where([static::primaryKey() => $this->id()])->limit(1);
+                $select->column($nameUnderscore)->where(array(static::primaryKey() => $this->id()))->limit(1);
                 $value = $select->fetchColumn();
                 $this->set($nameUnderscore, $value);
                 return $value;
@@ -399,11 +403,11 @@ abstract class AbstractModel
 
             if ($this->collection) {
                 $collectionIds = $this->collection->fetchColumn(static::$primaryKey);
-                $rows = $refModel::createSqlSelect()->where(["$foreignKey IN(?)" => $collectionIds])->fetchAll(\PDO::FETCH_BOTH);
+                $rows = $refModel::createSqlSelect()->where(array("$foreignKey IN(?)" => $collectionIds))->fetchAll(\PDO::FETCH_BOTH);
 
-                $associationData = [];
+                $associationData = array();
                 foreach ($rows as $row) {
-                    isset($associationData[$row[$foreignKey]]) || $associationData[$row[$foreignKey]] = [];
+                    isset($associationData[$row[$foreignKey]]) || $associationData[$row[$foreignKey]] = array();
                     $associationData[$row[$foreignKey]][] = $row;
                 }
 
@@ -414,7 +418,7 @@ abstract class AbstractModel
 
                 return $this->associationsData[$name];
             } else {
-                $collections = $refModel::all([$foreignKey => $this->id()]);
+                $collections = $refModel::all(array($foreignKey => $this->id()));
                 $this->set($name, $collections);
                 return $collections;
             }
@@ -444,12 +448,12 @@ abstract class AbstractModel
                 $collectionIds = $this->collection->fetchColumn(static::$primaryKey);
                 $rows = $refModel::createSqlSelect()->column("$throughTableName.$leftKey")
                     ->join($throughTableName, "$throughTableName.$rightKey = $refModelTableName.$refModelPrimaryKey")
-                    ->where(["$throughTableName.$leftKey IN(?)" => $collectionIds])
+                    ->where(array("$throughTableName.$leftKey IN(?)" => $collectionIds))
                     ->fetchAll(\PDO::FETCH_BOTH);
 
-                $associationData = [];
+                $associationData = array();
                 foreach ($rows as $row) {
-                    isset($associationData[$row[$leftKey]]) || $associationData[$row[$leftKey]] = [];
+                    isset($associationData[$row[$leftKey]]) || $associationData[$row[$leftKey]] = array();
                     $associationData[$row[$leftKey]][] = $row;
                 }
 
@@ -461,7 +465,7 @@ abstract class AbstractModel
                 return $this->associationsData[$name];
             } else {
                 $collections = $refModel::all()->join($throughTableName, "$throughTableName.$rightKey = $refModelTableName.$refModelPrimaryKey")
-                    ->where(["$throughTableName.$leftKey" => $this->id()]);
+                    ->where(array("$throughTableName.$leftKey" => $this->id()));
                 $this->set($name, $collections);
                 return $collections;
             }
@@ -478,7 +482,7 @@ abstract class AbstractModel
      */
     public function reset()
     {
-        $this->changedData = [];
+        $this->changedData = array();
         return $this;
     }
 
@@ -523,7 +527,7 @@ abstract class AbstractModel
     {
         if (!$this->sqlSelect) {
             $this->sqlSelect = static::createSqlSelect();
-            $this->sqlSelect->where([static::primaryKey() => $this->id()]);
+            $this->sqlSelect->where(array(static::primaryKey() => $this->id()));
         }
 
         return $this->sqlSelect;
@@ -547,7 +551,7 @@ abstract class AbstractModel
     {
         if (!$this->sqlUpdate) {
             $this->sqlUpdate = new Update(static::getPdo(), static::$tableName);
-            $this->sqlUpdate->where([static::primaryKey() => $this->id()]);
+            $this->sqlUpdate->where(array(static::primaryKey() => $this->id()));
         }
         return $this->sqlUpdate;
     }
@@ -559,7 +563,7 @@ abstract class AbstractModel
     {
         if (!$this->sqlDelete) {
             $this->sqlDelete = new Delete(static::getPdo(), static::$tableName);
-            $this->sqlDelete->where([static::primaryKey() => $this->id()]);
+            $this->sqlDelete->where(array(static::primaryKey() => $this->id()));
         }
         return $this->sqlDelete;
     }

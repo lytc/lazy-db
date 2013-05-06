@@ -23,7 +23,7 @@ class Update
     /**
      * @var array
      */
-    protected $data = [];
+    protected $data = array();
     /**
      * @var Where
      */
@@ -40,9 +40,9 @@ class Update
     /**
      * @var array
      */
-    protected static $aliasMethods = [
+    protected static $aliasMethods = array(
         'orWhere'   => 'where',
-    ];
+    );
 
     /**
      * @param Pdo $pdo
@@ -80,7 +80,7 @@ class Update
             throw new Exception(sprintf('Call undefined method %s', $method));
         }
 
-        call_user_func_array([$this->{self::$aliasMethods[$method]}(), $method], $args);
+        call_user_func_array(array($this->{self::$aliasMethods[$method]}(), $method), $args);
         return $this;
     }
 
@@ -131,7 +131,7 @@ class Update
             return $this->where;
         }
 
-        call_user_func_array([$this->where, 'where'], func_get_args());
+        call_user_func_array(array($this->where, 'where'), func_get_args());
         return $this;
     }
 
@@ -154,7 +154,7 @@ class Update
             return $this->order;
         }
 
-        call_user_func_array([$this->order, 'order'], func_get_args());
+        call_user_func_array(array($this->order, 'order'), func_get_args());
         return $this;
     }
 
@@ -177,7 +177,7 @@ class Update
             return $this->limit;
         }
 
-        call_user_func_array([$this->limit, 'limit'], func_get_args());
+        call_user_func_array(array($this->limit, 'limit'), func_get_args());
         return $this;
     }
 
@@ -186,7 +186,7 @@ class Update
      */
     public function reset()
     {
-        $this->data = [];
+        $this->data = array();
         !$this->where || $this->where->reset();
         !$this->order || $this->order->reset();
         !$this->limit || $this->limit->reset();
@@ -207,14 +207,14 @@ class Update
      */
     public function __toString()
     {
-        $sql = ['UPDATE'];
+        $sql = array('UPDATE');
 
         # from
         $sql[] = $this->table;
 
         # set
         $data = $this->data;
-        $sets = [];
+        $sets = array();
         foreach ($data as $column => $value) {
             $sets[] = sprintf('%s = %s', $column, $this->pdo->quote($value));
         }
@@ -226,7 +226,7 @@ class Update
             $sql[] = $where;
         }
 
-        $parts = ['order', 'limit'];
+        $parts = array('order', 'limit');
         foreach ($parts as $part) {
             if ($this->{$part} && $part = (String) $this->{$part}) {
                 $sql[] = $part;

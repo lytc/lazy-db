@@ -45,9 +45,9 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     {
         $select = new Select(DbSample::getPdo(), 'foo');
         $select->column('bar, baz b')
-            ->column(['qux']);
+            ->column(array('qux'));
 
-        $this->assertSame(['bar', 'baz b', 'qux'], $select->column());
+        $this->assertSame(array('bar', 'baz b', 'qux'), $select->column());
         $expected = "SELECT bar, baz b, qux FROM foo";
         $this->assertSame($expected, (String) $select);
     }
@@ -122,14 +122,14 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     {
         $pdo = DbSample::getPdo();
         $select = new Select($pdo, 'foo');
-        $select->having('bar = :bar', ['bar' => 'bar']);
+        $select->having('bar = :bar', array('bar' => 'bar'));
 
         $expected = "SELECT * FROM foo HAVING (bar = 'bar')";
         $this->assertSame($expected, (String) $select);
 
         $select = new Select($pdo, 'foo');
         $having = new Having($pdo);
-        $having->having('baz = :baz', ['baz' => 'baz']);
+        $having->having('baz = :baz', array('baz' => 'baz'));
         $select->having($having);
         $this->assertSame($having, $select->having());
         $expected = "SELECT * FROM foo HAVING (baz = 'baz')";
@@ -225,9 +225,9 @@ class SelectTest extends \PHPUnit_Framework_TestCase
     {
         $select = new Select(DbSample::getPdo());
         $select->column('foo, bar');
-        $this->assertSame(['foo', 'bar'], $select->column());
+        $this->assertSame(array('foo', 'bar'), $select->column());
         $select->resetColumn();
-        $this->assertSame([], $select->column());
+        $this->assertSame(array(), $select->column());
     }
 
     /**

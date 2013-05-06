@@ -18,7 +18,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     public function testBasic()
     {
         $update = new Update(DbSample::getPdo(), 'foo');
-        $update->data(['foo' => 'foo', 'bar' => 1]);
+        $update->data(array('foo' => 'foo', 'bar' => 1));
 
         $expected = "UPDATE foo SET foo = 'foo', bar = 1";
         $this->assertSame($expected, (String) $update);
@@ -51,7 +51,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     public function testData()
     {
         $update = new Update(DbSample::getPdo(), 'foo');
-        $data = ['foo' => 'foo', 'bar' => 'bar'];
+        $data = array('foo' => 'foo', 'bar' => 'bar');
         $update->data($data);
         $this->assertSame($data, $update->data());
     }
@@ -63,13 +63,13 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     {
         $pdo = DbSample::getPdo();
         $update = new Update($pdo, 'foo');
-        $update->data(['bar' => 'bar', 'baz' => 'baz'])->where(['id' => 1]);
+        $update->data(array('bar' => 'bar', 'baz' => 'baz'))->where(array('id' => 1));
 
         $expected = "UPDATE foo SET bar = 'bar', baz = 'baz' WHERE (id = 1)";
         $this->assertSame($expected, $update->__toString());
 
         $where = new Where($pdo);
-        $where->where(['id' => 2]);
+        $where->where(array('id' => 2));
         $update->where($where);
         $expected = "UPDATE foo SET bar = 'bar', baz = 'baz' WHERE (id = 2)";
         $this->assertSame($expected, $update->__toString());
@@ -83,7 +83,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     {
         $pdo = DbSample::getPdo();
         $update = new Update($pdo, 'foo');
-        $update->data(['bar' => 'bar', 'baz' => 'baz'])->order('id DESC');
+        $update->data(array('bar' => 'bar', 'baz' => 'baz'))->order('id DESC');
 
         $expected = "UPDATE foo SET bar = 'bar', baz = 'baz' ORDER BY id DESC";
         $this->assertSame($expected, $update->__toString());
@@ -103,7 +103,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     {
         $pdo = DbSample::getPdo();
         $update = new Update($pdo, 'foo');
-        $update->data(['bar' => 'bar', 'baz' => 'baz'])->limit(10);
+        $update->data(array('bar' => 'bar', 'baz' => 'baz'))->limit(10);
 
         $expected = "UPDATE foo SET bar = 'bar', baz = 'baz' LIMIT 10";
         $this->assertSame($expected, $update->__toString());
@@ -128,8 +128,8 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     public function testComplex()
     {
         $update = new Update(DbSample::getPdo(), 'foo');
-        $update->data(['foo' => 'foo', 'bar' => 1])
-            ->where('foo IN(?)', [[1, 2, 3]])
+        $update->data(array('foo' => 'foo', 'bar' => 1))
+            ->where('foo IN(?)', array(array(1, 2, 3)))
             ->orWhere('bar = ?', 'bar')
             ->order('foo')
             ->limit(10);
@@ -144,8 +144,8 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     public function testReset()
     {
         $update = new Update(DbSample::getPdo(), 'foo');
-        $update->data(['foo' => 'foo', 'bar' => 1])
-            ->where('foo IN(?)', [[1, 2, 3]])
+        $update->data(array('foo' => 'foo', 'bar' => 1))
+            ->where('foo IN(?)', array(array(1, 2, 3)))
             ->order('foo')
             ->limit(10);
 
@@ -164,8 +164,8 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     public function testResetPart()
     {
         $update = new Update(DbSample::getPdo(), 'foo');
-        $update->data(['foo' => 'foo', 'bar' => 1])
-            ->where('foo IN(?)', [[1, 2, 3]])
+        $update->data(array('foo' => 'foo', 'bar' => 1))
+            ->where('foo IN(?)', array(array(1, 2, 3)))
             ->order('foo')
             ->limit(10);
 
@@ -184,7 +184,7 @@ class UpdateTest extends \PHPUnit_Framework_TestCase
     {
         $pdo = DbSample::getPdo();
         $update = new Update($pdo, 'users');
-        $update->data(['name' => 'name888'])->limit(1);
+        $update->data(array('name' => 'name888'))->limit(1);
 
         $pdo->beginTransaction();
         $this->assertSame(1, $update->exec());

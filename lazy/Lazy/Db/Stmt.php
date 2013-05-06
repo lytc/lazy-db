@@ -11,7 +11,7 @@ class Stmt extends \PDOStatement
     /**
      * @var array
      */
-    protected static $instances = [];
+    protected static $instances = array();
 
     /**
      *
@@ -26,7 +26,7 @@ class Stmt extends \PDOStatement
      */
     public static function startLogInstance()
     {
-        self::$instances = [];
+        self::$instances = array();
     }
 
     /**

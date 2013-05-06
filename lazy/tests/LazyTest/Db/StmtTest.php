@@ -18,7 +18,7 @@ class StmtTest extends \PHPUnit_Framework_TestCase
         $expected = $stmt->fetchAll();
 
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParams(['name' => $name]);
+        $stmt->bindParams(array('name' => $name));
         $stmt->execute();
         $actual = $stmt->fetchAll();
 
@@ -37,7 +37,7 @@ class StmtTest extends \PHPUnit_Framework_TestCase
         $expected = $stmt->fetchAll();
 
         $stmt = $pdo->prepare($sql);
-        $stmt->bindValues(['name' => $name]);
+        $stmt->bindValues(array('name' => $name));
         $stmt->execute();
         $actual = $stmt->fetchAll();
 

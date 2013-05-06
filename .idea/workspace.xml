@@ -4,19 +4,19 @@
     <list default="true" id="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" name="Default" comment="" />
     <ignored path="orm.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Pdo.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367474230673" ignored="false" />
+    <file path="/Pdo.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367862633686" ignored="false" />
     <file path="/Stmt.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367663334383" ignored="false" />
     <file path="/phpunit.xml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367848888032" ignored="false" />
     <file path="/bootstrap.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367850985534" ignored="false" />
     <file path="/StmtTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367551776389" ignored="false" />
     <file path="/DbSample.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849262515" ignored="false" />
     <file path="/PdoTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839595286" ignored="false" />
-    <file path="/AbstractCondition.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367847077595" ignored="false" />
-    <file path="/a.dummy" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367861869384" ignored="false" />
+    <file path="/AbstractCondition.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367863417630" ignored="false" />
+    <file path="/a.dummy" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367862542193" ignored="false" />
     <file path="/Insert.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821785825" ignored="false" />
-    <file path="/Update.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367823135845" ignored="false" />
+    <file path="/Update.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367863104610" ignored="false" />
     <file path="/DeleteTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821143822" ignored="false" />
-    <file path="/Delete.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821016735" ignored="false" />
+    <file path="/Delete.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367863437439" ignored="false" />
     <file path="/InsertTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821919353" ignored="false" />
     <file path="/Select.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367824663013" ignored="false" />
     <file path="/SelectTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367824857547" ignored="false" />
@@ -26,14 +26,14 @@
     <file path="/JoinTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367819418201" ignored="false" />
     <file path="/LimitTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818442211" ignored="false" />
     <file path="/OrderTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818722269" ignored="false" />
-    <file path="/AbstractModel.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856003761" ignored="false" />
+    <file path="/AbstractModel.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367863256905" ignored="false" />
     <file path="/ModelTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856286654" ignored="false" />
-    <file path="/Generator.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367851169673" ignored="false" />
+    <file path="/Generator.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367862724024" ignored="false" />
     <file path="/GeneratorTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367488015077" ignored="false" />
     <file path="/Collection.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367476124231" ignored="false" />
     <file path="/Exception.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367578362898" ignored="false" />
     <file path="$PROJECT_DIR$/lazy/tests/Lazy/Db/Model/ModelTest/Base/Foo.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367494226919" ignored="false" />
-    <file path="/AbstractCollection.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367834148908" ignored="false" />
+    <file path="/AbstractCollection.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367863292440" ignored="false" />
     <file path="/Dummy.txt" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811524630" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/config/lytran.local.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367813603775" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/classes/digiembed.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
@@ -45,7 +45,7 @@
     <file path="$PROJECT_DIR$/../../digication/Campus/templates_c/en^%%DE^DEF^DEF76B41%%templatesmyfiles.tpl.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367559267232" ignored="false" />
     <file path="/myfiles.tpl" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367558806973" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/templates/myfiles.tpl" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
-    <file path="/CollectionTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367802964584" ignored="false" />
+    <file path="/CollectionTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367862796246" ignored="false" />
     <file path="/OneToManyTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367577323748" ignored="false" />
     <file path="/ManyToOneTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367577311123" ignored="false" />
     <file path="/ManyToManyTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367577303890" ignored="false" />
@@ -70,13 +70,14 @@
     <file path="/submit.js" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367812325430" ignored="false" />
     <file path="/Order.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818912887" ignored="false" />
     <file path="/Group.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367819124315" ignored="false" />
-    <file path="/HavingTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367825992656" ignored="false" />
+    <file path="/HavingTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367864225167" ignored="false" />
     <file path="/ExprTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367826136537" ignored="false" />
     <file path="/PdoMock.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367830925003" ignored="false" />
     <file path="/Where.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367834647380" ignored="false" />
-    <file path="/.travis.yml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856576434" ignored="false" />
+    <file path="/.travis.yml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367864329516" ignored="false" />
     <file path="/README.md" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367850789263" ignored="false" />
     <file path="/.gitignore" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367861908375" ignored="false" />
+    <file path="/*.regexp" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367863117584" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,19 +97,93 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Pdo.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php">
+      <file leaf-file-name="ExprTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/ExprTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="39" selection-start="1049" selection-end="1049" vertical-scroll-proportion="-21.25">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="PdoTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/PdoTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StmtTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/StmtTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="23" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IncludesTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/IncludesTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="9" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManyToManyTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ManyToManyTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LazyLoadTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="125" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Generator.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="327" column="0" selection-start="12565" selection-end="12565" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HavingTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/HavingTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="176" column="57" selection-start="5717" selection-end="5717" vertical-scroll-proportion="-7.9166665">
+              <folding>
+                <element signature="e#35#60#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="7" selection-start="113" selection-end="113" vertical-scroll-proportion="0.12729844">
               <folding />
             </state>
           </provider>
@@ -124,22 +199,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Stmt.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Exception/Exception.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Exception/InvalidArgumentException.php" />
-        <option value="$PROJECT_DIR$/lazy/tests/phpunit.xml" />
-        <option value="$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/lazy/tests/bootstrap.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php" />
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Delete.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php" />
-        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractModel.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractCollection.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/AbstractCondition.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Delete.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Select.php" />
         <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ModelTest.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/InsertTest.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/SelectTest.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/UpdateTest.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/WhereTest.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/IncludesTest.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/HavingTest.php" />
         <option value="$PROJECT_DIR$/.travis.yml" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -197,29 +272,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="orm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lazy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="last_opened_file_path" value="$USER_HOME$/.pvm/php/current/lib/php/PHPUnit" />
     <property name="FullScreen" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -261,10 +326,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43139842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27194244" sideWeight="0.5686016" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33021584" sideWeight="0.6899736" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -273,6 +337,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31002638" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -339,120 +404,122 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php">
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/SelectTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.5524079">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="2" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="32" selection-start="62" selection-end="62" vertical-scroll-proportion="0.04249292">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="355" column="41" selection-start="13956" selection-end="13956" vertical-scroll-proportion="-20.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Delete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="0" selection-start="3485" selection-end="3485" vertical-scroll-proportion="-19.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="45" selection-start="4366" selection-end="4366" vertical-scroll-proportion="-138.125">
+        <state line="300" column="34" selection-start="9842" selection-end="9842" vertical-scroll-proportion="-9.291667">
           <folding>
-            <element signature="e#31#46#0" expanded="true" />
+            <element signature="e#35#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php">
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/UpdateTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="51" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.7186147">
+        <state line="195" column="34" selection-start="6076" selection-end="6076" vertical-scroll-proportion="-19.708334">
           <folding>
-            <element signature="e#37#54#0" expanded="true" />
+            <element signature="e#35#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ModelTest.php">
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/WhereTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="18" selection-start="6159" selection-end="6159" vertical-scroll-proportion="0.7577904">
-          <folding />
+        <state line="176" column="65" selection-start="5610" selection-end="5610" vertical-scroll-proportion="-7.8333335">
+          <folding>
+            <element signature="e#35#60#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="121" selection-end="121" vertical-scroll-proportion="0.14383562">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/AbstractOrder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="46" selection-start="2129" selection-end="2154" vertical-scroll-proportion="0.44759208">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/AbstractUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/AbstractPost.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="49" selection-start="2032" selection-end="2049" vertical-scroll-proportion="0.786119">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Orders.php">
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/ExprTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractModel.php">
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/PdoTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="15" selection-start="5126" selection-end="5133" vertical-scroll-proportion="0.93167704">
-          <folding>
-            <element signature="e#33#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="39" selection-start="1049" selection-end="1049" vertical-scroll-proportion="-21.25">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/StmtTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/IncludesTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="9" selection-start="1812" selection-end="1812" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ManyToManyTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="125" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/AbstractProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/AbstractUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.1200585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/Model/AbstractOrder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.9985359">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="327" column="0" selection-start="12565" selection-end="12565" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql/HavingTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="176" column="57" selection-start="5717" selection-end="5717" vertical-scroll-proportion="-7.9166665">
+          <folding>
+            <element signature="e#35#60#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="113" selection-end="113" vertical-scroll-proportion="0.12729844">
           <folding />
         </state>
       </provider>

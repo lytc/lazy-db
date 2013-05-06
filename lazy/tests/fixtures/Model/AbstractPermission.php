@@ -7,8 +7,8 @@ abstract class AbstractPermission extends AbstractModel
     protected static $primaryKey = 'id';
     protected static $tableName = 'permissions';
     protected static $collectionClass = '\Model\Collection\Permissions';
-    protected static $columnsSchema = [
-        'id' => [
+    protected static $columnsSchema = array(
+        'id' => array(
             'type'          => 'int',
             'length'        => 11,
             'nullable'      => false,
@@ -16,8 +16,8 @@ abstract class AbstractPermission extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => true
-        ],
-        'name' => [
+        ),
+        'name' => array(
             'type'          => 'int',
             'length'        => 11,
             'nullable'      => false,
@@ -25,25 +25,25 @@ abstract class AbstractPermission extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-    ];
-    protected static $immediatelySelectColumns = [
+        ),
+    );
+    protected static $immediatelySelectColumns = array(
         'id',
         'name'
-    ];
-    protected static $oneToMany = [
-        'UserPermissions' => [
+    );
+    protected static $oneToMany = array(
+        'UserPermissions' => array(
             'model' => '\Model\UserPermission',
             'key'   => 'permission_id'
-        ],
-    ];
-    protected static $manyToOne = [];
-    protected static $manyToMany = [
-        'Users' => [
+        ),
+    );
+    protected static $manyToOne = array();
+    protected static $manyToMany = array(
+        'Users' => array(
             'model'         => '\Model\User',
             'throughModel'  => '\Model\UserPermission',
             'leftKey'       => 'permission_id',
             'rightKey'      => 'user_id'
-        ],
-    ];
+        ),
+    );
 }

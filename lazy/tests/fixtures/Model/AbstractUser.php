@@ -7,8 +7,8 @@ abstract class AbstractUser extends AbstractModel
     protected static $primaryKey = 'id';
     protected static $tableName = 'users';
     protected static $collectionClass = '\Model\Collection\Users';
-    protected static $columnsSchema = [
-        'id' => [
+    protected static $columnsSchema = array(
+        'id' => array(
             'type'          => 'int',
             'length'        => 11,
             'nullable'      => false,
@@ -16,8 +16,8 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => true
-        ],
-        'name' => [
+        ),
+        'name' => array(
             'type'          => 'varchar',
             'length'        => 255,
             'nullable'      => false,
@@ -25,8 +25,8 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'username' => [
+        ),
+        'username' => array(
             'type'          => 'varchar',
             'length'        => 50,
             'nullable'      => false,
@@ -34,8 +34,8 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'password' => [
+        ),
+        'password' => array(
             'type'          => 'varchar',
             'length'        => 50,
             'nullable'      => false,
@@ -43,8 +43,8 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'phone' => [
+        ),
+        'phone' => array(
             'type'          => 'varchar',
             'length'        => 20,
             'nullable'      => true,
@@ -52,8 +52,8 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'created_time' => [
+        ),
+        'created_time' => array(
             'type'          => 'datetime',
             'length'        => NULL,
             'nullable'      => false,
@@ -61,8 +61,8 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'modified_time' => [
+        ),
+        'modified_time' => array(
             'type'          => 'timestamp',
             'length'        => NULL,
             'nullable'      => false,
@@ -70,9 +70,9 @@ abstract class AbstractUser extends AbstractModel
             'foreignKey'    => false,
             'default'       => 'CURRENT_TIMESTAMP',
             'autoIncrement' => false
-        ],
-    ];
-    protected static $immediatelySelectColumns = [
+        ),
+    );
+    protected static $immediatelySelectColumns = array(
         'id',
         'name',
         'username',
@@ -80,34 +80,34 @@ abstract class AbstractUser extends AbstractModel
         'phone',
         'created_time',
         'modified_time'
-    ];
-    protected static $oneToMany = [
-        'Orders' => [
+    );
+    protected static $oneToMany = array(
+        'Orders' => array(
             'model' => '\Model\Order',
             'key'   => 'user_id'
-        ],
-        'Posts' => [
+        ),
+        'Posts' => array(
             'model' => '\Model\Post',
             'key'   => 'user_id'
-        ],
-        'UserPermissions' => [
+        ),
+        'UserPermissions' => array(
             'model' => '\Model\UserPermission',
             'key'   => 'user_id'
-        ],
-    ];
-    protected static $manyToOne = [];
-    protected static $manyToMany = [
-        'Products' => [
+        ),
+    );
+    protected static $manyToOne = array();
+    protected static $manyToMany = array(
+        'Products' => array(
             'model'         => '\Model\Product',
             'throughModel'  => '\Model\Order',
             'leftKey'       => 'user_id',
             'rightKey'      => 'product_id'
-        ],
-        'Permissions' => [
+        ),
+        'Permissions' => array(
             'model'         => '\Model\Permission',
             'throughModel'  => '\Model\UserPermission',
             'leftKey'       => 'user_id',
             'rightKey'      => 'permission_id'
-        ],
-    ];
+        ),
+    );
 }

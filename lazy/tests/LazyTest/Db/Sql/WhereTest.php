@@ -34,7 +34,7 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testWithParamStringAndBindQuestionMarkParams()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where("foo = ? AND bar = ?", ['foo', 'bar']);
+        $where->where("foo = ? AND bar = ?", array('foo', 'bar'));
         $expected = "WHERE (foo = 'foo' AND bar = 'bar')";
         $this->assertEquals($expected, (String) $where);
     }
@@ -45,7 +45,7 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testWithParamStringAndBindNamedParams()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where("foo = :foo AND bar = :bar", ['bar' => 'bar', 'foo' => 'foo']);
+        $where->where("foo = :foo AND bar = :bar", array('bar' => 'bar', 'foo' => 'foo'));
         $expected = "WHERE (foo = 'foo' AND bar = 'bar')";
         $this->assertEquals($expected, (String) $where);
     }
@@ -56,7 +56,7 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testWithParamStringAndBindBothQuestionMarkAndNamedParams()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where("foo = :foo AND bar = ? AND baz = :baz", ['baz' => 'baz', 'bar', 'foo' => 'foo']);
+        $where->where("foo = :foo AND bar = ? AND baz = :baz", array('baz' => 'baz', 'bar', 'foo' => 'foo'));
         $expected = "WHERE (foo = 'foo' AND bar = 'bar' AND baz = 'baz')";
         $this->assertEquals($expected, (String) $where);
     }
@@ -67,8 +67,8 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testMultipleWhereWithStringParam()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where('foo = ? AND bar = :bar', ['foo', 'bar' => 'bar']);
-        $where->where('baz = :baz AND qux = ?', ['baz' => 'baz', 'qux']);
+        $where->where('foo = ? AND bar = :bar', array('foo', 'bar' => 'bar'));
+        $where->where('baz = :baz AND qux = ?', array('baz' => 'baz', 'qux'));
         $expected = "WHERE (foo = 'foo' AND bar = 'bar') AND (baz = 'baz' AND qux = 'qux')";
         $this->assertEquals($expected, (String) $where);
     }
@@ -79,11 +79,11 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testWithParamArray()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where([
+        $where->where(array(
             'foo' => 'foo',
             "bar = 'bar' OR baz = ?" => 'baz',
             'qux = 1'
-        ]);
+        ));
 
         $expected = "WHERE (foo = 'foo' AND bar = 'bar' OR baz = 'baz' AND qux = 1)";
         $this->assertEquals($expected, (String) $where);
@@ -95,11 +95,11 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testParamArrayAndHasConditionType()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where([
+        $where->where(array(
             'foo' => 'foo',
             "OR bar = 'bar' OR baz = ?" => 'baz',
             'or qux = 1'
-        ]);
+        ));
 
         $expected = "WHERE (foo = 'foo' OR bar = 'bar' OR baz = 'baz' or qux = 1)";
         $this->assertEquals($expected, (String) $where);
@@ -111,14 +111,14 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testOrWhere()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where("foo = ?", ['foo']);
-        $where->orWhere('bar = :bar', ['bar' => 'bar']);
+        $where->where("foo = ?", array('foo'));
+        $where->orWhere('bar = :bar', array('bar' => 'bar'));
         $where->where('baz = 1');
         $expected = "WHERE (foo = 'foo') OR (bar = 'bar') AND (baz = 1)";
         $this->assertEquals($expected, (String) $where);
 
         $where = new Where(DbSample::getPdo());
-        $where->where('foo = ?', ['foo']);
+        $where->where('foo = ?', array('foo'));
         $where->orWhere("bar = ? AND baz = ?", 'bar', 'baz');
         $expected = "WHERE (foo = 'foo') OR (bar = 'bar' AND baz = 'baz')";
         $this->assertEquals($expected, (String) $where);
@@ -160,11 +160,11 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testBindInWithQuestionMark()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where('foo IN(?)', [1, 2]);
+        $where->where('foo IN(?)', array(1, 2));
         $this->assertEquals("WHERE (foo IN(1, 2))", (String) $where);
 
         $where = new Where(DbSample::getPdo());
-        $where->where('foo IN(?)', [[1, 2]]);
+        $where->where('foo IN(?)', array(array(1, 2)));
         $this->assertEquals("WHERE (foo IN(1, 2))", (String) $where);
     }
 
@@ -174,7 +174,7 @@ class WhereTest extends \PHPUnit_Framework_TestCase
     public function testBindInWithNamed()
     {
         $where = new Where(DbSample::getPdo());
-        $where->where('foo IN(:foo)', ['foo' => [1, 2]]);
+        $where->where('foo IN(:foo)', array('foo' => array(1, 2)));
         $this->assertEquals("WHERE (foo IN(1, 2))", (String) $where);
     }
 

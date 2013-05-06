@@ -14,12 +14,12 @@ class Pdo extends \PDO
      * @param string $password
      * @param array $driverOptions
      */
-    public function __construct($dsn, $username = null, $password = null, array $driverOptions = [])
+    public function __construct($dsn, $username = null, $password = null, array $driverOptions = array())
     {
         parent::__construct($dsn, $username, $password, $driverOptions);
 
         $this->setAttribute(self::ATTR_ERRMODE, self::ERRMODE_EXCEPTION);
-        $this->setAttribute(self::ATTR_STATEMENT_CLASS, [__NAMESPACE__ . '\\Stmt']);
+        $this->setAttribute(self::ATTR_STATEMENT_CLASS, array(__NAMESPACE__ . '\\Stmt'));
     }
 
     /**

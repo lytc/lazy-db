@@ -7,8 +7,8 @@ abstract class AbstractOrder extends AbstractModel
     protected static $primaryKey = 'id';
     protected static $tableName = 'orders';
     protected static $collectionClass = '\Model\Collection\Orders';
-    protected static $columnsSchema = [
-        'id' => [
+    protected static $columnsSchema = array(
+        'id' => array(
             'type'          => 'int',
             'length'        => 11,
             'nullable'      => false,
@@ -16,8 +16,8 @@ abstract class AbstractOrder extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => true
-        ],
-        'user_id' => [
+        ),
+        'user_id' => array(
             'type'          => 'int',
             'length'        => 11,
             'nullable'      => false,
@@ -25,8 +25,8 @@ abstract class AbstractOrder extends AbstractModel
             'foreignKey'    => true,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'product_id' => [
+        ),
+        'product_id' => array(
             'type'          => 'int',
             'length'        => 11,
             'nullable'      => false,
@@ -34,8 +34,8 @@ abstract class AbstractOrder extends AbstractModel
             'foreignKey'    => true,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'status' => [
+        ),
+        'status' => array(
             'type'          => 'tinyint',
             'length'        => 1,
             'nullable'      => false,
@@ -43,8 +43,8 @@ abstract class AbstractOrder extends AbstractModel
             'foreignKey'    => false,
             'default'       => '0',
             'autoIncrement' => false
-        ],
-        'created_time' => [
+        ),
+        'created_time' => array(
             'type'          => 'datetime',
             'length'        => NULL,
             'nullable'      => false,
@@ -52,8 +52,8 @@ abstract class AbstractOrder extends AbstractModel
             'foreignKey'    => false,
             'default'       => NULL,
             'autoIncrement' => false
-        ],
-        'modified_time' => [
+        ),
+        'modified_time' => array(
             'type'          => 'timestamp',
             'length'        => NULL,
             'nullable'      => false,
@@ -61,26 +61,26 @@ abstract class AbstractOrder extends AbstractModel
             'foreignKey'    => false,
             'default'       => 'CURRENT_TIMESTAMP',
             'autoIncrement' => false
-        ],
-    ];
-    protected static $immediatelySelectColumns = [
+        ),
+    );
+    protected static $immediatelySelectColumns = array(
         'id',
         'user_id',
         'product_id',
         'status',
         'created_time',
         'modified_time'
-    ];
-    protected static $oneToMany = [];
-    protected static $manyToOne = [
-        'Product' => [
+    );
+    protected static $oneToMany = array();
+    protected static $manyToOne = array(
+        'Product' => array(
             'model' => '\Model\Product',
             'key'   => 'product_id'
-        ],
-        'User' => [
+        ),
+        'User' => array(
             'model' => '\Model\User',
             'key'   => 'user_id'
-        ],
-    ];
-    protected static $manyToMany = [];
+        ),
+    );
+    protected static $manyToMany = array();
 }

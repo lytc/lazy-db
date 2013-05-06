@@ -12,11 +12,11 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $mockPdo = $this->getMock('\PdoMock', ['quote']);
+        $mockPdo = $this->getMock('\PdoMock', array('quote'));
         $this->mockPdo = $mockPdo;
 
         $mockModel = $this->getMockClass('\Lazy\Db\Model\AbstractModel',
-            ['getPdo', 'primaryKey', 'tableName', 'immediatelySelectColumns', 'collectionClass']);
+            array('getPdo', 'primaryKey', 'tableName', 'immediatelySelectColumns', 'collectionClass'));
         $mockModel::staticExpects($this->any())
             ->method('getPdo')
             ->will($this->returnValue($mockPdo));
@@ -31,11 +31,11 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModel::staticExpects($this->any())
             ->method('immediatelySelectColumns')
-            ->will($this->returnValue(['bar', 'baz']));
+            ->will($this->returnValue(array('bar', 'baz')));
 
         $this->mockModel = $mockModel;
 
-        $mockCollection = $this->getMockClass('\Lazy\Db\Model\AbstractCollection', ['modelClass']);
+        $mockCollection = $this->getMockClass('\Lazy\Db\Model\AbstractCollection', array('modelClass'));
         $mockCollection::staticExpects($this->any())
             ->method('modelClass')
             ->will($this->returnValue($mockModel));
@@ -72,7 +72,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $expected = "SELECT bar, baz FROM foo";
         $this->assertSame($expected, $collection->sqlSelect()->__toString());
 
-        $collection = $model::all(['id IN(1, 2, 3)']);
+        $collection = $model::all(array('id IN(1, 2, 3)'));
         $this->assertInstanceOf('\Lazy\Db\Model\AbstractCollection', $collection);
         $expected = "SELECT bar, baz FROM foo WHERE (id IN(1, 2, 3))";
         $this->assertSame($expected, $collection->sqlSelect()->__toString());
@@ -89,7 +89,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue(false));
 
         $mockModel = $this->getMockForAbstractClass('\Lazy\Db\Model\AbstractModel',
-            [], '', false, true, true, ['createSqlSelect']);
+            array(), '', false, true, true, array('createSqlSelect'));
         $mockModel::staticExpects($this->any())
             ->method('createSqlSelect')
             ->will($this->returnValue($mockSelect));
@@ -106,14 +106,14 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $mockSelect = $this->getMockBuilder('\Lazy\Db\Sql\Select')->disableOriginalConstructor()->getMock();
         $mockSelect->expects($this->any())
             ->method('fetch')
-            ->will($this->returnValue(['foo' => 'foo']));
+            ->will($this->returnValue(array('foo' => 'foo')));
 
         $mockModel = $this->getMockForAbstractClass('\Lazy\Db\Model\AbstractModel',
-            [], '', false, true, true, ['columnSchema', 'createSqlSelect']);
+            array(), '', false, true, true, array('columnSchema', 'createSqlSelect'));
 
         $mockModel::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue([]));
+            ->will($this->returnValue(array()));
 
         $mockModel::staticExpects($this->any())
             ->method('createSqlSelect')
@@ -131,7 +131,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public function test__construct()
     {
         $mockModelClass = $this->getMockClass('\Lazy\Db\Model\AbstractModel',
-            ['primaryKey', 'columnSchema', 'getPdo']);
+            array('primaryKey', 'columnSchema', 'getPdo'));
 
         $mockModelClass::staticExpects($this->any())
             ->method('primaryKey')
@@ -139,12 +139,12 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
+            ->will($this->returnValue(array('foo' => array('type' => 'int'), 'bar' => array('type' => 'varchar'))));
 
-        $model = new $mockModelClass(['foo' => 1, 'bar' => 'bar']);
+        $model = new $mockModelClass(array('foo' => 1, 'bar' => 'bar'));
         $this->assertFalse($model->isNew());
 
-        $model = new $mockModelClass(['bar' => 'bar']);
+        $model = new $mockModelClass(array('bar' => 'bar'));
         $this->assertTrue($model->isNew());
     }
 
@@ -154,7 +154,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public function testMethodId()
     {
         $mockModelClass = $this->getMockClass('\Lazy\Db\Model\AbstractModel',
-            ['primaryKey', 'columnSchema', 'getPdo']);
+            array('primaryKey', 'columnSchema', 'getPdo'));
 
         $mockModelClass::staticExpects($this->any())
             ->method('primaryKey')
@@ -162,9 +162,9 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
+            ->will($this->returnValue(array('foo' => array('type' => 'int'), 'bar' => array('type' => 'varchar'))));
 
-        $model = new $mockModelClass(['foo' => 10]);
+        $model = new $mockModelClass(array('foo' => 10));
         $this->assertSame(10, $model->id());
     }
 
@@ -174,7 +174,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public function testMethodToArray()
     {
         $mockModelClass = $this->getMockClass('\Lazy\Db\Model\AbstractModel',
-            ['primaryKey', 'columnSchema', 'getPdo']);
+            array('primaryKey', 'columnSchema', 'getPdo'));
 
         $mockModelClass::staticExpects($this->any())
             ->method('primaryKey')
@@ -182,14 +182,14 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
+            ->will($this->returnValue(array('foo' => array('type' => 'int'), 'bar' => array('type' => 'varchar'))));
 
-        $model = new $mockModelClass(['foo' => 1]);
+        $model = new $mockModelClass(array('foo' => 1));
         $this->assertInternalType('array', $model->toArray());
-        $this->assertSame(['foo' => 1], $model->toArray());
+        $this->assertSame(array('foo' => 1), $model->toArray());
 
         $model->bar = 'bar';
-        $this->assertSame(['foo' => 1, 'bar' => 'bar'], $model->toArray());
+        $this->assertSame(array('foo' => 1, 'bar' => 'bar'), $model->toArray());
     }
 
     /**
@@ -198,7 +198,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public function testFromArrayWithExistingRow()
     {
         $mockModelClass = $this->getMockClass('\Lazy\Db\Model\AbstractModel',
-            ['primaryKey', 'columnSchema', 'getPdo']);
+            array('primaryKey', 'columnSchema', 'getPdo'));
 
         $mockModelClass::staticExpects($this->any())
             ->method('primaryKey')
@@ -206,12 +206,12 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $mockModelClass::staticExpects($this->any())
             ->method('columnSchema')
-            ->will($this->returnValue(['foo' => ['type' => 'int'], 'bar' => ['type' => 'varchar']]));
+            ->will($this->returnValue(array('foo' => array('type' => 'int'), 'bar' => array('type' => 'varchar'))));
 
-        $model = new $mockModelClass(['foo' => 1, 'bar' => 'bar']);
-        $this->assertSame(['foo' => 1, 'bar' => 'bar'], $model->toArray());
-        $model->fromArray(['bar' => 'baz']);
-        $this->assertSame(['foo' => 1, 'bar' => 'baz'], $model->toArray());
+        $model = new $mockModelClass(array('foo' => 1, 'bar' => 'bar'));
+        $this->assertSame(array('foo' => 1, 'bar' => 'bar'), $model->toArray());
+        $model->fromArray(array('bar' => 'baz'));
+        $this->assertSame(array('foo' => 1, 'bar' => 'baz'), $model->toArray());
     }
 
     /**
@@ -250,7 +250,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      */
     public function testFirstWithWhereArrayCondition()
     {
-        $user = User::first(['name' => 'name4']);
+        $user = User::first(array('name' => 'name4'));
         $this->assertSame(4, $user->id);
         $this->assertSame('name4', $user->name);
     }
@@ -306,7 +306,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public function testInsertAndDelete()
     {
         $name = uniqid();
-        $user = new User(['name' => $name]);
+        $user = new User(array('name' => $name));
         $user->save();
         $this->assertSame(5, $user->id);
         $this->assertSame($name, $user->name);
@@ -322,7 +322,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public function testUpdate()
     {
         $name = uniqid();
-        $user = new User(['name' => $name]);
+        $user = new User(array('name' => $name));
         $user->save();
 
         $this->assertSame($name, $user->name);
