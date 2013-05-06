@@ -4,6 +4,7 @@ before_script:
 env: LAZY_TEST_ENV=travis
 language: php
 php:
+  - 5.3
   - 5.4
   - 5.5
 
