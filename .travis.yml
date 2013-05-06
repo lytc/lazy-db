@@ -5,5 +5,6 @@ env: LAZY_TEST_ENV=travis
 language: php
 php:
   - 5.4
+  - 5.5
 
 script: phpunit -c lazy/tests/phpunit.xml --testsuite Lazy_Db_Test_Suite

@@ -60,12 +60,12 @@
     <file path="$PROJECT_DIR$/../hoinhanduc.com/application/modules/default/views/layouts/default.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367675962980" ignored="false" />
     <file path="/default.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367675888436" ignored="false" />
     <file path="/sample-database.sql" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367740955507" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Permissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/UserPermissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Posts.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Orders.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Products.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
-    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Users.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856309227" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Permissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856572628" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/UserPermissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856572628" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Posts.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856572628" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Orders.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856572628" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Products.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856572628" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Users.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856572628" ignored="false" />
     <file path="/LazyLoadTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367806961152" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/classes/imagemagick.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
     <file path="$PROJECT_DIR$/../../digication/Campus/classes/cuser.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367813599679" ignored="false" />
@@ -80,7 +80,7 @@
     <file path="/ExprTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367826136537" ignored="false" />
     <file path="/PdoMock.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367830925003" ignored="false" />
     <file path="/Where.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367834647380" ignored="false" />
-    <file path="/.travis.yml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849249082" ignored="false" />
+    <file path="/.travis.yml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367856576434" ignored="false" />
     <file path="/README.md" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367850789263" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +124,7 @@
       <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="72" selection-start="187" selection-end="187" vertical-scroll-proportion="0.16438356">
+            <state line="7" column="7" selection-start="121" selection-end="121" vertical-scroll-proportion="0.14383562">
               <folding />
             </state>
           </provider>
@@ -159,7 +159,6 @@
         <option value="$PROJECT_DIR$/lazy/tests/phpunit.xml" />
         <option value="$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/lazy/tests/bootstrap.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/Generator.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Delete.php" />
@@ -167,6 +166,7 @@
         <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/LazyLoadTest.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Model/AbstractModel.php" />
         <option value="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Model/ModelTest.php" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
   </component>
@@ -579,7 +579,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="72" selection-start="187" selection-end="187" vertical-scroll-proportion="0.16438356">
+        <state line="7" column="7" selection-start="121" selection-end="121" vertical-scroll-proportion="0.14383562">
           <folding />
         </state>
       </provider>
