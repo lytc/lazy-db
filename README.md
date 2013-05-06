@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/lytc/lazy-db.png?branch=master)](https://travis-ci.org/lytc/lazy-db)
 #Lazy/Db is an Object Relational Mapper written in PHP
 
 ###Release information
