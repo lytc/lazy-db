@@ -1,0 +1,9 @@
+before_script:
+  - mysql -e 'CREATE DATABASE lazy_db_test;'
+
+env: LAZY_TEST_ENV=travis
+language: php
+php:
+  - 5.4
+
+script: phpunit -c lazy/tests/phpunit.xml lazy/tests

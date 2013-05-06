@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" name="Default" comment="" />
+    <ignored path="orm.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Pdo.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367474230673" ignored="false" />
+    <file path="/Stmt.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367663334383" ignored="false" />
+    <file path="/phpunit.xml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367848888032" ignored="false" />
+    <file path="/bootstrap.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367848758840" ignored="false" />
+    <file path="/StmtTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367551776389" ignored="false" />
+    <file path="/DbSample.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849262515" ignored="false" />
+    <file path="/PdoTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839595286" ignored="false" />
+    <file path="/AbstractCondition.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367847077595" ignored="false" />
+    <file path="/a.dummy" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367835654340" ignored="false" />
+    <file path="/Insert.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821785825" ignored="false" />
+    <file path="/Update.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367823135845" ignored="false" />
+    <file path="/DeleteTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821143822" ignored="false" />
+    <file path="/Delete.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821016735" ignored="false" />
+    <file path="/InsertTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367821919353" ignored="false" />
+    <file path="/Select.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367824663013" ignored="false" />
+    <file path="/SelectTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367824857547" ignored="false" />
+    <file path="/UpdateTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367823312406" ignored="false" />
+    <file path="/WhereTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367825014387" ignored="false" />
+    <file path="/GroupTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367819191675" ignored="false" />
+    <file path="/JoinTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367819418201" ignored="false" />
+    <file path="/LimitTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818442211" ignored="false" />
+    <file path="/OrderTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818722269" ignored="false" />
+    <file path="/AbstractModel.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839416588" ignored="false" />
+    <file path="/ModelTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367839448668" ignored="false" />
+    <file path="/Generator.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367814793887" ignored="false" />
+    <file path="/GeneratorTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367488015077" ignored="false" />
+    <file path="/Collection.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367476124231" ignored="false" />
+    <file path="/Exception.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367578362898" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/Lazy/Db/Model/ModelTest/Base/Foo.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367494226919" ignored="false" />
+    <file path="/AbstractCollection.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367834148908" ignored="false" />
+    <file path="/Dummy.txt" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811524630" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/config/lytran.local.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367813603775" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/classes/digiembed.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
+    <file path="/digiembed.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367558159192" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/scripts/get-url-patterns-from-embedly.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/portfolio/modules/media/media.element.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367813599679" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/js/myfiles.js" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
+    <file path="/myfiles.js" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367558743836" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/templates_c/en^%%DE^DEF^DEF76B41%%templatesmyfiles.tpl.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367559267232" ignored="false" />
+    <file path="/myfiles.tpl" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367558806973" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/templates/myfiles.tpl" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
+    <file path="/CollectionTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367802964584" ignored="false" />
+    <file path="/OneToManyTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367577323748" ignored="false" />
+    <file path="/ManyToOneTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367577311123" ignored="false" />
+    <file path="/ManyToManyTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367577303890" ignored="false" />
+    <file path="/UserPermission.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367573074568" ignored="false" />
+    <file path="/IncludesTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367804412564" ignored="false" />
+    <file path="/InvalidArgumentException.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367578389207" ignored="false" />
+    <file path="/test.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367663186600" ignored="false" />
+    <file path="$PROJECT_DIR$/../hoinhanduc.com/public_html/resources/default/css/style.css" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367676749836" ignored="false" />
+    <file path="/style.css" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367674726048" ignored="false" />
+    <file path="$PROJECT_DIR$/../hoinhanduc.com/application/modules/default/views/layouts/default/header.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367676800701" ignored="false" />
+    <file path="/header.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367676501053" ignored="false" />
+    <file path="$PROJECT_DIR$/../hoinhanduc.com/application/modules/default/views/layouts/default.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367675962980" ignored="false" />
+    <file path="/default.phtml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367675888436" ignored="false" />
+    <file path="/sample-database.sql" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367740955507" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Permissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/UserPermissions.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Posts.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Orders.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Products.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="$PROJECT_DIR$/lazy/tests/fixtures/Model/Collection/Users.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849369616" ignored="false" />
+    <file path="/LazyLoadTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367806961152" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/classes/imagemagick.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367811529104" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/classes/cuser.class.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367813599679" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/portfolio/templates/submit/index.tpl" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367812198952" ignored="false" />
+    <file path="/index.tpl" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367812077405" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/css/portfolio/submit.css" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367812294349" ignored="false" />
+    <file path="$PROJECT_DIR$/../../digication/Campus/js/portfolio/submit.js" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367812327900" ignored="false" />
+    <file path="/submit.js" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367812325430" ignored="false" />
+    <file path="/Order.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367818912887" ignored="false" />
+    <file path="/Group.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367819124315" ignored="false" />
+    <file path="/HavingTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367825992656" ignored="false" />
+    <file path="/ExprTest.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367826136537" ignored="false" />
+    <file path="/PdoMock.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367830925003" ignored="false" />
+    <file path="/Where.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367834647380" ignored="false" />
+    <file path="/.travis.yml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849249082" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="orm" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="18" selection-start="66" selection-end="79" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="23" selection-start="395" selection-end="395" vertical-scroll-proportion="-5.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="phpunit.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/phpunit.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DbSample.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.5524079">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Limit.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Order.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Select.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Where.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Having.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Expr.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Stmt.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Exception/Exception.php" />
+        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Exception/InvalidArgumentException.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/lazy/tests/bootstrap.php" />
+        <option value="$PROJECT_DIR$/lazy/tests/phpunit.xml" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$USER_HOME$/.pvm/php/current/lib/php/PHPUnit" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1436" />
+    <option name="height" value="878" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/.pvm/php/current/lib/php/PHPUnit" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lazy/tests/LazyTest/Db/Sql" />
+      <recent name="$PROJECT_DIR$/lazy/tests/Lazy/Db/Model" />
+      <recent name="$PROJECT_DIR$/lazy/tests/Lazy/Db" />
+      <recent name="$PROJECT_DIR$/lazy/Lazy/Db" />
+      <recent name="$PROJECT_DIR$/lazy/Lazy/Db/Sql" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lazy/tests/fixtures" />
+      <recent name="$PROJECT_DIR$/lazy/tests/Lazy/Db/Model" />
+      <recent name="$PROJECT_DIR$/lazy/Lazy/Db/Model" />
+      <recent name="$PROJECT_DIR$/lazy" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" name="Default" comment="" />
+      <created>1367468420462</created>
+      <updated>1367468420462</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1436" height="878" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43139842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27194244" sideWeight="0.5686016" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Limit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="17" selection-start="578" selection-end="578" vertical-scroll-proportion="-0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="32" selection-start="381" selection-end="381" vertical-scroll-proportion="-0.21104816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Select.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="323" column="20" selection-start="6653" selection-end="6653" vertical-scroll-proportion="0.1713881">
+          <folding>
+            <element signature="e#31#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="161" column="23" selection-start="3112" selection-end="3112" vertical-scroll-proportion="-0.7634561">
+          <folding>
+            <element signature="e#31#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Where.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="30" selection-start="679" selection-end="679" vertical-scroll-proportion="0.6175637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Having.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="30" selection-start="683" selection-end="683" vertical-scroll-proportion="-17.208334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Expr.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="21" selection-start="161" selection-end="161" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Pdo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="21" selection-start="1362" selection-end="1368" vertical-scroll-proportion="-18.458334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Stmt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="6" selection-start="191" selection-end="191" vertical-scroll-proportion="5.2916665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Exception/Exception.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Exception/InvalidArgumentException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/phpunit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="23" selection-start="395" selection-end="395" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="18" selection-start="66" selection-end="79" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.5524079">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
