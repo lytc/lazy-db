@@ -1,3 +1,4 @@
-lazy-db
-=======
 Lazy/Db is an Object Relational Mapper written in PHP
+
+##Release information
+THIS RELEASE IS A DEVELOPMENT RELEASE AND NOT INTENDED FOR PRODUCTION USE. PLEASE USE AT YOUR OWN RISK

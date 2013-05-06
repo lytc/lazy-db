@@ -81,6 +81,7 @@
     <file path="/PdoMock.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367830925003" ignored="false" />
     <file path="/Where.php" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367834647380" ignored="false" />
     <file path="/.travis.yml" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367849249082" ignored="false" />
+    <file path="/README.md" changelist="e340b9ed-cdcb-4d54-9576-7fd23e3aa9fe" time="1367850789263" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,46 +101,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".travis.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="18" selection-start="66" selection-end="79" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lazy/tests/bootstrap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="23" selection-start="395" selection-end="395" vertical-scroll-proportion="-5.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phpunit.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lazy/tests/phpunit.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="98" selection-end="98" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DbSample.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.5524079">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="2" column="2" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04109589">
               <folding />
             </state>
           </provider>
@@ -155,7 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Limit.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Order.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Select.php" />
         <option value="$PROJECT_DIR$/lazy/Lazy/Db/Sql/Update.php" />
@@ -171,6 +135,7 @@
         <option value="$PROJECT_DIR$/lazy/tests/phpunit.xml" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -274,14 +239,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1436" height="878" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43139842" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27194244" sideWeight="0.5686016" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27194244" sideWeight="0.5686016" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -356,13 +321,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Limit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="17" selection-start="578" selection-end="578" vertical-scroll-proportion="-0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lazy/Lazy/Db/Sql/Order.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="32" selection-start="381" selection-end="381" vertical-scroll-proportion="-0.21104816">
@@ -468,6 +426,13 @@
     <entry file="file://$PROJECT_DIR$/lazy/tests/fixtures/DbSample.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.5524079">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="2" selection-start="57" selection-end="57" vertical-scroll-proportion="0.04109589">
           <folding />
         </state>
       </provider>
