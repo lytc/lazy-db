@@ -15,7 +15,7 @@ class PdoTest extends \PHPUnit_Framework_TestCase
     public function testStmtClass()
     {
         $pdo = DbSample::getPdo();
-        $this->assertSame(['Lazy\Db\Stmt'], $pdo->getAttribute(PDO::ATTR_STATEMENT_CLASS));
+        $this->assertSame(array('Lazy\Db\Stmt'), $pdo->getAttribute(PDO::ATTR_STATEMENT_CLASS));
     }
 
     public function testQuote()
@@ -24,8 +24,8 @@ class PdoTest extends \PHPUnit_Framework_TestCase
         $expr = new Expr("foo'bar");
         $this->assertSame("foo'bar", $pdo->quote($expr));
 
-        $this->assertSame([1, 2, 3], $pdo->quote([1, 2, 3]));
-        $this->assertSame([1, "'foo\'bar'"], $pdo->quote([1, "foo'bar"]));
+        $this->assertSame(array(1, 2, 3), $pdo->quote(array(1, 2, 3)));
+        $this->assertSame(array(1, "'foo\'bar'"), $pdo->quote(array(1, "foo'bar")));
     }
 
     public function testEscape()

@@ -24,7 +24,7 @@ class Having extends AbstractCondition
             $bindPrams = array_slice(func_get_args(), 1);
         }
 
-        is_array($bindPrams) || $bindPrams = [$bindPrams];
+        is_array($bindPrams) || $bindPrams = array($bindPrams);
         return $this->condition('AND', $conditions, $bindPrams);
     }
 
@@ -39,7 +39,7 @@ class Having extends AbstractCondition
             $bindPrams = array_slice(func_get_args(), 1);
         }
 
-        is_array($bindPrams) || $bindPrams = [$bindPrams];
+        is_array($bindPrams) || $bindPrams = array($bindPrams);
         return $this->condition('OR', $conditions, $bindPrams);
     }
 }

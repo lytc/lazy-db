@@ -35,9 +35,9 @@ class Delete
     /**
      * @var array
      */
-    protected static $aliasMethods = [
+    protected static $aliasMethods = array(
         'orWhere'   => 'where',
-    ];
+    );
 
     /**
      * @param Pdo $pdo
@@ -75,7 +75,7 @@ class Delete
             throw new Exception(sprintf('Call undefined method %s', $method));
         }
 
-        call_user_func_array([$this->{self::$aliasMethods[$method]}(), $method], $args);
+        call_user_func_array(array($this->{self::$aliasMethods[$method]}(), $method), $args);
         return $this;
     }
 
@@ -112,7 +112,7 @@ class Delete
             return $this->where;
         }
 
-        call_user_func_array([$this->where, 'where'], func_get_args());
+        call_user_func_array(array($this->where, 'where'), func_get_args());
         return $this;
     }
 
@@ -135,7 +135,7 @@ class Delete
             return $this->order;
         }
 
-        call_user_func_array([$this->order, 'order'], func_get_args());
+        call_user_func_array(array($this->order, 'order'), func_get_args());
         return $this;
     }
 
@@ -158,7 +158,7 @@ class Delete
             return $this->limit;
         }
 
-        call_user_func_array([$this->limit, 'limit'], func_get_args());
+        call_user_func_array(array($this->limit, 'limit'), func_get_args());
         return $this;
     }
 
@@ -187,7 +187,7 @@ class Delete
      */
     public function __toString()
     {
-        $sql = ['DELETE'];
+        $sql = array('DELETE');
 
         # from
         $sql[] = 'FROM ' . $this->table;
@@ -197,7 +197,7 @@ class Delete
             $sql[] = $where;
         }
 
-        $parts = ['order', 'limit'];
+        $parts = array('order', 'limit');
         foreach ($parts as $part) {
             if ($this->{$part} && $part = (String) $this->{$part}) {
                 $sql[] = $part;

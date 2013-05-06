@@ -21,7 +21,7 @@ abstract class AbstractCondition
     /**
      * @var array
      */
-    protected $conditions = [];
+    protected $conditions = array();
 
     /**
      * @param Pdo $pdo
@@ -40,11 +40,11 @@ abstract class AbstractCondition
     protected function condition($type, $conditions = null, array $bindParams = null)
     {
 
-        $this->conditions[] = [
+        $this->conditions[] = array(
             'type'          => $type,
             'conditions'    => $conditions,
             'bindParams'    => $bindParams
-        ];
+        );
         return $this;
     }
 
@@ -62,13 +62,13 @@ abstract class AbstractCondition
             if ($bindParams) {
                 $conditions = $this->bind($conditions, $bindParams);
             }
-            return [
+            return array(
                 'type' => $type,
                 'conditions' => $conditions
-            ];
+            );
         }
 
-        $parts = [];
+        $parts = array();
         $first = true;
         foreach ($conditions as $condition => $bindParams) {
             if (is_numeric($condition)) {
@@ -94,10 +94,10 @@ abstract class AbstractCondition
             $first = false;
         }
 
-        return [
+        return array(
             'type'  => $type,
             'conditions' => implode(' ', $parts)
-        ];
+        );
     }
 
     /**
@@ -110,7 +110,7 @@ abstract class AbstractCondition
             $value = $this->pdo->quote($value);
         }
         $index = 0;
-        return preg_replace_callback(['/\(?(\?|\:(\w+))\)?([^\w]*)/', '/\(?(\?|\:(\w+))\)?$/'], function($matches) use(&$index, $bindParams) {
+        return preg_replace_callback(array('/\(?(\?|\:(\w+))\)?([^\w]*)/', '/\(?(\?|\:(\w+))\)?$/'), function($matches) use(&$index, $bindParams) {
             if (preg_match('/^\((\?|\:(\w+))\)$/', $matches[0], $m)) {
                 if($m[0] == '(?)') {
                     $value = $bindParams[$index++];
@@ -141,7 +141,7 @@ abstract class AbstractCondition
      */
     public function reset()
     {
-        $this->conditions = [];
+        $this->conditions = array();
         return $this;
     }
 
@@ -154,13 +154,14 @@ abstract class AbstractCondition
             return '';
         }
 
-        $parts = [];
+        $parts = array();
 
         foreach ($this->conditions as $condition) {
             $parts[] = $this->compile($condition);
         }
 
-        $conditions = ['(' . array_shift($parts)['conditions'] . ')'];
+        $part0 = array_shift($parts);
+        $conditions = array('(' . $part0['conditions'] . ')');
         foreach ($parts as $part) {
             $conditions[] = sprintf('%s (%s)', $part['type'], $part['conditions']);
         }

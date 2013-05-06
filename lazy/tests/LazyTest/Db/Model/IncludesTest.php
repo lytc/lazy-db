@@ -13,7 +13,7 @@ class IncludesTest extends \PHPUnit_Framework_TestCase
     public function testIncludesOneToMany()
     {
         Stmt::startLogInstance();
-        $users = User::all()->limit(2);//->includes('Orders', 'Posts');
+        $users = User::all()->limit(2);
 
         $this->assertInstanceOf('\Model\Collection\Users', $users);
         $this->assertCount(2, $users);
@@ -38,15 +38,15 @@ class IncludesTest extends \PHPUnit_Framework_TestCase
         $this->assertCount(3, $stmtInstances);
 
         $this->assertEquals(User::createSqlSelect()->limit(2), $stmtInstances[0]->queryString);
-        $this->assertEquals(Order::createSqlSelect()->where(['user_id IN(?)' => ['1', '2']]), $stmtInstances[1]->queryString);
-        $this->assertEquals(Post::createSqlSelect()->where(['user_id IN(?)' => ['1', '2']]), $stmtInstances[2]->queryString);
+        $this->assertEquals(Order::createSqlSelect()->where(array('user_id IN(?)' => array('1', '2'))), $stmtInstances[1]->queryString);
+        $this->assertEquals(Post::createSqlSelect()->where(array('user_id IN(?)' => array('1', '2'))), $stmtInstances[2]->queryString);
     }
 
     public function testIncludesManyToMany()
     {
         Stmt::startLogInstance();
 
-        $users = User::all()->limit(2);//->includes('Permissions');
+        $users = User::all()->limit(2);
         $this->assertInstanceOf('\Model\Collection\Users', $users);
         $this->assertCount(2, $users);
 

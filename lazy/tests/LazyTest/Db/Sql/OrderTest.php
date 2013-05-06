@@ -23,22 +23,22 @@ class OrderTest extends \PHPUnit_Framework_TestCase
     {
         $order = new Order();
         $order->order('foo');
-        $this->assertSame(['foo ASC'], $order->order());
+        $this->assertSame(array('foo ASC'), $order->order());
         $this->assertEquals('ORDER BY foo ASC', $order);
 
         $order = new Order();
         $order->order('foo DESC');
-        $this->assertSame(['foo DESC'], $order->order());
+        $this->assertSame(array('foo DESC'), $order->order());
         $this->assertEquals('ORDER BY foo DESC', $order);
 
         $order = new Order();
         $order->order('foo desc');
-        $this->assertSame(['foo DESC'], $order->order());
+        $this->assertSame(array('foo DESC'), $order->order());
         $this->assertEquals('ORDER BY foo DESC', $order);
 
         $order = new Order();
         $order->order('foo DESC, bar');
-        $this->assertSame(['foo DESC', 'bar ASC'], $order->order());
+        $this->assertSame(array('foo DESC', 'bar ASC'), $order->order());
         $this->assertEquals('ORDER BY foo DESC, bar ASC', $order);
     }
 
@@ -49,8 +49,8 @@ class OrderTest extends \PHPUnit_Framework_TestCase
     public function testWithParamArray()
     {
         $order = new Order();
-        $order->order(['foo', 'bar' => 'asc', 'baz' => 'DESC', 'qux']);
-        $this->assertSame(['foo ASC', 'bar ASC', 'baz DESC', 'qux ASC'], $order->order());
+        $order->order(array('foo', 'bar' => 'asc', 'baz' => 'DESC', 'qux'));
+        $this->assertSame(array('foo ASC', 'bar ASC', 'baz DESC', 'qux ASC'), $order->order());
         $this->assertEquals('ORDER BY foo ASC, bar ASC, baz DESC, qux ASC', $order);
     }
 
@@ -58,8 +58,8 @@ class OrderTest extends \PHPUnit_Framework_TestCase
     {
         $order = new Order();
         $order->order('foo');
-        $this->assertSame(['foo ASC'], $order->order());
+        $this->assertSame(array('foo ASC'), $order->order());
         $order->reset();
-        $this->assertSame([], $order->order());
+        $this->assertSame(array(), $order->order());
     }
 }

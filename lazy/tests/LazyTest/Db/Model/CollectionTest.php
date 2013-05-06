@@ -42,7 +42,7 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     public function testWhereAndOrWhereCondition()
     {
         $users = User::all();
-        $users->where(['id IN(?)' => [2, 3]])->orWhere(['name' => 'name4']);
+        $users->where(array('id IN(?)' => array(2, 3)))->orWhere(array('name' => 'name4'));
         $this->assertSame(3, count($users));
     }
 
@@ -72,17 +72,17 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     public function testFetchColumn()
     {
         $users = User::all()->limit(2);
-        $this->assertSame(['1', '2'], $users->fetchColumn());
-        $this->assertSame(['name1', 'name2'], $users->fetchColumn(1));
-        $this->assertSame(['name1', 'name2'], $users->fetchColumn('name'));
+        $this->assertSame(array('1', '2'), $users->fetchColumn());
+        $this->assertSame(array('name1', 'name2'), $users->fetchColumn(1));
+        $this->assertSame(array('name1', 'name2'), $users->fetchColumn('name'));
     }
 
     public function testFetchPair()
     {
         $users = User::all()->limit(2);
 
-        $this->assertSame([1 => 'name1', 2 => 'name2'], $users->fetchPair());
-        $this->assertSame(['name1' => '1', 'name2' => '2'], $users->fetchPair(1, 0));
-        $this->assertSame(['name1' => '1', 'name2' => '2'], $users->fetchPair('name', 'id'));
+        $this->assertSame(array(1 => 'name1', 2 => 'name2'), $users->fetchPair());
+        $this->assertSame(array('name1' => '1', 'name2' => '2'), $users->fetchPair(1, 0));
+        $this->assertSame(array('name1' => '1', 'name2' => '2'), $users->fetchPair('name', 'id'));
     }
 }

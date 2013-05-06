@@ -14,7 +14,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     public function testWithSingleValue()
     {
         $insert = new Insert(DbSample::getPdo(), 'foo');
-        $insert->value(['foo' => 'foo', 'bar' => 1]);
+        $insert->value(array('foo' => 'foo', 'bar' => 1));
         $expected = "INSERT INTO foo (foo, bar) VALUES ('foo', 1)";
         $this->assertSame($expected, (String) $insert);
     }
@@ -26,10 +26,10 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     public function testWithMultipleValue()
     {
         $insert = new Insert(DbSample::getPdo(), 'foo');
-        $insert->value([
-            ['foo' => 'foo', 'bar' => 1],
-            ['foo' => 'foo2', 'bar' => 2],
-        ]);
+        $insert->value(array(
+            array('foo' => 'foo', 'bar' => 1),
+            array('foo' => 'foo2', 'bar' => 2),
+        ));
         $expected = "INSERT INTO foo (foo, bar) VALUES ('foo', 1), ('foo2', 2)";
         $this->assertSame($expected, (String) $insert);
     }
@@ -43,14 +43,14 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     {
         $insert = new Insert(DbSample::getPdo(), 'foo');
         $insert->column('foo, bar')
-            ->value(['foo', 1]);
+            ->value(array('foo', 1));
 
         $expected = "INSERT INTO foo (foo, bar) VALUES ('foo', 1)";
         $this->assertSame($expected, (String) $insert);
 
         $insert = new Insert(DbSample::getPdo(), 'foo');
         $insert->column('foo, bar')
-            ->value([['foo', 1], ['foo2', 2]]);
+            ->value(array(array('foo', 1), array('foo2', 2)));
 
         $expected = "INSERT INTO foo (foo, bar) VALUES ('foo', 1), ('foo2', 2)";
         $this->assertSame($expected, (String) $insert);
@@ -83,10 +83,10 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     {
         $insert = new Insert(DbSample::getPdo());
         $insert->column('foo, bar');
-        $this->assertSame(['foo', 'bar'], $insert->column());
+        $this->assertSame(array('foo', 'bar'), $insert->column());
 
-        $insert->column(['baz', 'qux']);
-        $this->assertSame(['baz', 'qux'], $insert->column());
+        $insert->column(array('baz', 'qux'));
+        $this->assertSame(array('baz', 'qux'), $insert->column());
     }
 
     /**
@@ -95,7 +95,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     public function testGetValue()
     {
         $insert = new Insert(DbSample::getPdo());
-        $values = ['foo' => 'foo', 'bar' => 'bar'];
+        $values = array('foo' => 'foo', 'bar' => 'bar');
         $insert->value($values);
         $this->assertSame($values, $insert->value());
     }
@@ -106,10 +106,10 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     public function testReset()
     {
         $insert = new Insert(DbSample::getPdo());
-        $insert->column(['foo', 'bar'])->value(['foo', 'bar']);
+        $insert->column(array('foo', 'bar'))->value(array('foo', 'bar'));
         $insert->reset();
-        $this->assertSame([], $insert->column());
-        $this->assertSame([], $insert->value());
+        $this->assertSame(array(), $insert->column());
+        $this->assertSame(array(), $insert->value());
     }
 
     /**
@@ -119,7 +119,7 @@ class InsertTest extends \PHPUnit_Framework_TestCase
     {
         $pdo = DbSample::getPdo();
         $insert = new Insert($pdo, 'users');
-        $insert->value([['name' => 'name888'], ['name' => 'name999']]);
+        $insert->value(array(array('name' => 'name888'), array('name' => 'name999')));
 
         $pdo->beginTransaction();
         $this->assertSame(2, $insert->exec());

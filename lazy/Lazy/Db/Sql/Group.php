@@ -11,7 +11,7 @@ class Group
     /**
      * @var array
      */
-    protected $columns = [];
+    protected $columns = array();
 
     /**
      * ->group('foo') # => GROUP BY fooo
@@ -40,7 +40,7 @@ class Group
      */
     public function reset()
     {
-        $this->columns = [];
+        $this->columns = array();
         return $this;
     }
 
@@ -53,7 +53,7 @@ class Group
             return '';
         }
 
-        $columns = [];
+        $columns = array();
         foreach ($this->columns as $column) {
             $columns[] = is_array($column)? implode(', ', $column) : $column;
         }

@@ -34,7 +34,7 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testWithParamStringAndBindQuestionMarkParams()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having("foo = ? AND bar = ?", ['foo', 'bar']);
+        $Having->Having("foo = ? AND bar = ?", array('foo', 'bar'));
         $expected = "HAVING (foo = 'foo' AND bar = 'bar')";
         $this->assertEquals($expected, (String) $Having);
     }
@@ -45,7 +45,7 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testWithParamStringAndBindNamedParams()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having("foo = :foo AND bar = :bar", ['bar' => 'bar', 'foo' => 'foo']);
+        $Having->Having("foo = :foo AND bar = :bar", array('bar' => 'bar', 'foo' => 'foo'));
         $expected = "HAVING (foo = 'foo' AND bar = 'bar')";
         $this->assertEquals($expected, (String) $Having);
     }
@@ -56,7 +56,7 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testWithParamStringAndBindBothQuestionMarkAndNamedParams()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having("foo = :foo AND bar = ? AND baz = :baz", ['baz' => 'baz', 'bar', 'foo' => 'foo']);
+        $Having->Having("foo = :foo AND bar = ? AND baz = :baz", array('baz' => 'baz', 'bar', 'foo' => 'foo'));
         $expected = "HAVING (foo = 'foo' AND bar = 'bar' AND baz = 'baz')";
         $this->assertEquals($expected, (String) $Having);
     }
@@ -67,8 +67,8 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testMultipleHavingWithStringParam()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having('foo = ? AND bar = :bar', ['foo', 'bar' => 'bar']);
-        $Having->Having('baz = :baz AND qux = ?', ['baz' => 'baz', 'qux']);
+        $Having->Having('foo = ? AND bar = :bar', array('foo', 'bar' => 'bar'));
+        $Having->Having('baz = :baz AND qux = ?', array('baz' => 'baz', 'qux'));
         $expected = "HAVING (foo = 'foo' AND bar = 'bar') AND (baz = 'baz' AND qux = 'qux')";
         $this->assertEquals($expected, (String) $Having);
     }
@@ -79,11 +79,11 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testWithParamArray()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having([
+        $Having->Having(array(
             'foo' => 'foo',
             "bar = 'bar' OR baz = ?" => 'baz',
             'qux = 1'
-        ]);
+        ));
 
         $expected = "HAVING (foo = 'foo' AND bar = 'bar' OR baz = 'baz' AND qux = 1)";
         $this->assertEquals($expected, (String) $Having);
@@ -95,11 +95,11 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testParamArrayAndHasConditionType()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having([
+        $Having->Having(array(
             'foo' => 'foo',
             "OR bar = 'bar' OR baz = ?" => 'baz',
             'or qux = 1'
-        ]);
+        ));
 
         $expected = "HAVING (foo = 'foo' OR bar = 'bar' OR baz = 'baz' or qux = 1)";
         $this->assertEquals($expected, (String) $Having);
@@ -111,14 +111,14 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testOrHaving()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having("foo = ?", ['foo']);
-        $Having->orHaving('bar = :bar', ['bar' => 'bar']);
+        $Having->Having("foo = ?", array('foo'));
+        $Having->orHaving('bar = :bar', array('bar' => 'bar'));
         $Having->Having('baz = 1');
         $expected = "HAVING (foo = 'foo') OR (bar = 'bar') AND (baz = 1)";
         $this->assertEquals($expected, (String) $Having);
 
         $Having = new Having(DbSample::getPdo());
-        $Having->Having('foo = ?', ['foo']);
+        $Having->Having('foo = ?', array('foo'));
         $Having->orHaving("bar = ? AND baz = ?", 'bar', 'baz');
         $expected = "HAVING (foo = 'foo') OR (bar = 'bar' AND baz = 'baz')";
         $this->assertEquals($expected, (String) $Having);
@@ -160,11 +160,11 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testBindInWithQuestionMark()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having('foo IN(?)', [1, 2]);
+        $Having->Having('foo IN(?)', array(1, 2));
         $this->assertEquals("HAVING (foo IN(1, 2))", (String) $Having);
 
         $Having = new Having(DbSample::getPdo());
-        $Having->Having('foo IN(?)', [[1, 2]]);
+        $Having->Having('foo IN(?)', array(array(1, 2)));
         $this->assertEquals("HAVING (foo IN(1, 2))", (String) $Having);
     }
 
@@ -174,7 +174,7 @@ class HavingTest extends \PHPUnit_Framework_TestCase
     public function testBindInWithNamed()
     {
         $Having = new Having(DbSample::getPdo());
-        $Having->Having('foo IN(:foo)', ['foo' => [1, 2]]);
+        $Having->Having('foo IN(:foo)', array('foo' => array(1, 2)));
         $this->assertEquals("HAVING (foo IN(1, 2))", (String) $Having);
     }
 

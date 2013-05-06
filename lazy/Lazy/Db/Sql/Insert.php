@@ -22,11 +22,11 @@ class Insert
     /**
      * @var array
      */
-    protected $columns = [];
+    protected $columns = array();
     /**
      * @var array
      */
-    protected $values = [];
+    protected $values = array();
 
     /**
      * @param Pdo $pdo
@@ -97,8 +97,8 @@ class Insert
      */
     public function reset()
     {
-        $this->columns = [];
-        $this->values = [];
+        $this->columns = array();
+        $this->values = array();
         return $this;
     }
 
@@ -115,20 +115,20 @@ class Insert
      */
     public function __toString()
     {
-        $sql = ['INSERT INTO'];
+        $sql = array('INSERT INTO');
 
         # from
         $sql[] = $this->table;
 
         $values = $this->values;
-        is_array(current($values)) || $values = [$values];
+        is_array(current($values)) || $values = array($values);
 
         # columns
         $columns = $this->columns?: array_keys(current($values));
         $sql[] = '(' . implode(', ', $columns) . ')';
 
         # set
-        $vals = [];
+        $vals = array();
         foreach ($values as $value) {
             $vals[] = '(' . implode(', ', $this->pdo->quote(array_values($value))) . ')';
         }

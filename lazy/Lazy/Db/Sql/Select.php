@@ -22,7 +22,7 @@ class Select
     /**
      * @var array
      */
-    protected $columns = [];
+    protected $columns = array();
     /**
      * @var Join
      */
@@ -51,14 +51,14 @@ class Select
     /**
      * @var array
      */
-    protected static $aliasMethods = [
+    protected static $aliasMethods = array(
         'innerJoin' => 'join',
         'leftJoin'  => 'join',
         'rightJoin' => 'join',
         'orWhere'   => 'where',
         'orHaving'  => 'having',
         'offset'    => 'limit'
-    ];
+    );
 
     /**
      * @param Pdo $pdo
@@ -88,7 +88,7 @@ class Select
             throw new Exception(sprintf('Call undefined method %s', $method));
         }
 
-        $result = call_user_func_array([$this->{self::$aliasMethods[$method]}(), $method], $args);
+        $result = call_user_func_array(array($this->{self::$aliasMethods[$method]}(), $method), $args);
         return $args? $this : $result;
     }
 
@@ -152,7 +152,7 @@ class Select
             return $this->join;
         }
 
-        call_user_func_array([$this->join, 'join'], func_get_args());
+        call_user_func_array(array($this->join, 'join'), func_get_args());
         return $this;
     }
 
@@ -175,7 +175,7 @@ class Select
             return $this->where;
         }
 
-        call_user_func_array([$this->where, 'where'], func_get_args());
+        call_user_func_array(array($this->where, 'where'), func_get_args());
         return $this;
     }
 
@@ -198,7 +198,7 @@ class Select
             return $this->group;
         }
 
-        call_user_func_array([$this->group, 'group'], func_get_args());
+        call_user_func_array(array($this->group, 'group'), func_get_args());
         return $this;
     }
 
@@ -221,7 +221,7 @@ class Select
             return $this->having;
         }
 
-        call_user_func_array([$this->having, 'having'], func_get_args());
+        call_user_func_array(array($this->having, 'having'), func_get_args());
         return $this;
     }
 
@@ -244,7 +244,7 @@ class Select
             return $this->order;
         }
 
-        call_user_func_array([$this->order, 'order'], func_get_args());
+        call_user_func_array(array($this->order, 'order'), func_get_args());
         return $this;
     }
 
@@ -267,7 +267,7 @@ class Select
             return $this->limit;
         }
 
-        call_user_func_array([$this->limit, 'limit'], func_get_args());
+        call_user_func_array(array($this->limit, 'limit'), func_get_args());
         return $this;
     }
 
@@ -276,7 +276,7 @@ class Select
      */
     public function resetColumn()
     {
-        $this->columns = [];
+        $this->columns = array();
         return $this;
     }
 
@@ -309,7 +309,7 @@ class Select
      */
     public function fetch()
     {
-        return call_user_func_array([$this->query(), 'fetch'], func_get_args());
+        return call_user_func_array(array($this->query(), 'fetch'), func_get_args());
     }
 
     /**
@@ -317,7 +317,7 @@ class Select
      */
     public function fetchAll()
     {
-        return call_user_func_array([$this->query(), 'fetchAll'], func_get_args());
+        return call_user_func_array(array($this->query(), 'fetchAll'), func_get_args());
     }
 
     /**
@@ -325,7 +325,7 @@ class Select
      */
     public function fetchColumn()
     {
-        return call_user_func_array([$this->query(), 'fetchColumn'], func_get_args());
+        return call_user_func_array(array($this->query(), 'fetchColumn'), func_get_args());
     }
 
     /**
@@ -333,7 +333,7 @@ class Select
      */
     public function __toString()
     {
-        $sql = ['SELECT'];
+        $sql = array('SELECT');
 
         # columns
         if (!$this->columns) {
@@ -345,7 +345,7 @@ class Select
         # from
         $sql[] = 'FROM ' . $this->table;
 
-        $parts = ['join', 'where', 'group', 'having', 'order', 'limit'];
+        $parts = array('join', 'where', 'group', 'having', 'order', 'limit');
         foreach ($parts as $part) {
             if ($this->{$part} && $part = (String) $this->{$part}) {
                 $sql[] = $part;

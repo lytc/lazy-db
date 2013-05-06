@@ -11,12 +11,12 @@ class Order
     /**
      * @var array
      */
-    protected $data = [];
+    protected $data = array();
 
     /**
      * ->order('foo') # => ORDER BY foo ASC
      * ->order('foo, bar DESC') # => ORDER BY foo ASC, bar DESC
-     * ->order(['foo', 'bar' => 'DESC']) # => ORDER BY foo ASC, bar DESC
+     * ->order(array('foo', 'bar' => 'DESC')) # => ORDER BY foo ASC, bar DESC
      *
      * @param string|array|Order $columns
      * @return array|Order
@@ -54,7 +54,7 @@ class Order
      */
     public function reset()
     {
-        $this->data = [];
+        $this->data = array();
         return $this;
     }
 

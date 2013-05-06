@@ -39,7 +39,7 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
     /**
      * @var array
      */
-    protected $models = [];
+    protected $models = array();
 
     /**
      * @var int
@@ -54,9 +54,9 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
     /**
      * @var array
      */
-    protected static $fallbackMethods = [
+    protected static $fallbackMethods = array(
         'where', 'orWhere', 'having', 'orHaving', 'group', 'order', 'limit', 'offset', 'join'
-    ];
+    );
 
     /**
      * @param $select
@@ -101,7 +101,7 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
             throw new Exception(sprintf('Call undefined magic method %s', $method));
         }
 
-        call_user_func_array([$this->select, $method], $args);
+        call_user_func_array(array($this->select, $method), $args);
         return $this;
     }
 
@@ -159,7 +159,7 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
      */
     public function fetchColumn($column = 0)
     {
-        $result = [];
+        $result = array();
         foreach ($this->toArray() as $row) {
             $result[] = $row[$column];
         }
@@ -203,7 +203,8 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
      */
     public function offsetGet($offset)
     {
-        return $this->get($this->toArray()[$offset][$this->primaryKey]);
+        $data = $this->toArray();
+        return $this->get($data[$offset][$this->primaryKey]);
     }
 
     /**
