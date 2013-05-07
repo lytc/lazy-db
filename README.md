@@ -36,9 +36,7 @@ class User extends AbstractModel
       'activated' => 'tinyint'
     ],
     
-    protected static $oneToMany = [
-      'Posts' => ['model' => 'Post', 'key' => 'user_id']
-    ];
+    protected static $oneToMany = ['Posts'];
 }
 
 class Users extend \Lazy\Db\Model\AbstractCollection
@@ -55,9 +53,7 @@ class Post extends AbstractModel
       'modified_time' => 'timestamp',
     ],
     
-    protected static $manyToOne = [
-      'User' => ['model' => 'User', 'key' => 'user_id']
-    ];
+    protected static $manyToOne = ['User'];
 }
 
 class Posts extend \Lazy\Db\Model\AbstractCollection
