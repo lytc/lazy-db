@@ -55,7 +55,7 @@ class Users extend \Lazy\Db\Model\AbstractCollection
 class Post extends AbstractModel
 {
     protected static $tableName = 'posts';
-    protecte static $collectionClass = 'Posts';
+    protected static $collectionClass = 'Posts';
     
     protected static $columnsSchema = [
       'id'            => 'int',
