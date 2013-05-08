@@ -477,6 +477,15 @@ abstract class AbstractModel
     }
 
     /**
+     * @param array $data
+     * @return static
+     */
+    public static function create(array $data)
+    {
+        return new static($data);
+    }
+
+    /**
      * @return bool
      */
     public function isNew()
