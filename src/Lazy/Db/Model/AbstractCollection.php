@@ -3,6 +3,7 @@
 namespace Lazy\Db\Model;
 
 use Lazy\Db\Exception\Exception;
+use Lazy\Db\Sql\Delete;
 use Lazy\Db\Sql\Select;
 use Doctrine\Common\Inflector\Inflector;
 
@@ -194,6 +195,40 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
     public function fetchPair($columnKey = 0, $columnValue = 1)
     {
         return array_combine($this->fetchColumn($columnKey), $this->fetchColumn($columnValue));
+    }
+
+    /**
+     *
+     */
+    public function delete()
+    {
+        $ids = $this->fetchColumn($this->primaryKey);
+        if ($ids) {
+            $primaryKey = $this->primaryKey;
+            $modelClass = static::modelClass();
+            $delete = $modelClass::createSqlDelete();
+            $delete->where(array("$primaryKey IN(?)" => $ids));
+
+            $pdo = $delete->getPdo();
+
+            if ($pdo->inTransaction()) {
+                $pdo->beginTransaction();
+
+                try {
+                    $delete->exec();
+                    $pdo->commit();
+                } catch (\Exception $e) {
+                    $pdo->rollBack();
+                }
+            } else {
+                $delete->exec();
+            }
+            $this->count = 0;
+            $this->countAll = null;
+            $this->data = array();
+            $this->models = array();
+        }
+        return $this;
     }
 
     public function countAll()

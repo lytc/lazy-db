@@ -10,6 +10,7 @@ class DbSample
     public static $username = 'root';
     public static $password = '';
     public static $dbName = 'lazy_db_test';
+    protected static $sampleDbFile;
     protected static $pdo;
 
     public static function getPdo($new = false)
@@ -22,7 +23,7 @@ class DbSample
         $username = self::$username;
         $password = self::$password;
         $dbName = self::$dbName;
-        $sampleDbFile = __DIR__ . '/sample-database.sql';
+        self::$sampleDbFile = $sampleDbFile = __DIR__ . '/sample-database.sql';
 
         Pdo::dbFirst(__DIR__, 'Model');
 
@@ -33,13 +34,19 @@ class DbSample
         }
 
         $pdo = new Pdo("mysql:host={$host};dbname={$dbName}", $username, $password);
-
-        if (getenv('LAZY_TEST_ENV') == 'travis') {
-            $pdo->exec(file_get_contents(__DIR__ . '/sample-database.sql'));
-        }
-
         self::$pdo = $pdo;
 
+        if (getenv('LAZY_TEST_ENV') == 'travis') {
+            self::reset();
+        }
+
+
         return self::$pdo;
+    }
+
+    public static function reset()
+    {
+        $pdo = self::$pdo;
+        $pdo->exec(file_get_contents(self::$sampleDbFile));
     }
 }

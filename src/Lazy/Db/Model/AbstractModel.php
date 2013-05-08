@@ -434,6 +434,15 @@ abstract class AbstractModel
     }
 
     /**
+     * @return Delete
+     */
+    public static function createSqlDelete()
+    {
+        $delete = new Delete(static::getPdo(), static::tableName());
+        return $delete;
+    }
+
+    /**
      * @param String|array $where
      * @return AbstractCollection
      */
