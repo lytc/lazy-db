@@ -649,8 +649,10 @@ abstract class AbstractModel
                     $associationData[$row[$foreignKey]][] = $row;
                 }
 
-                foreach ($associationData as $id => $rows) {
-                    $collectionClass = $refModel::collectionClass();
+                $collectionClass = $refModel::collectionClass();
+
+                foreach ($collectionIds as $id) {
+                    $rows = isset($associationData[$id])? $associationData[$id] : array();
                     $this->collection->get($id)->set($name, new $collectionClass($rows));
                 }
 
