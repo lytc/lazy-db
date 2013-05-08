@@ -174,11 +174,12 @@ EOD;
 
     public function generate()
     {
-//        // cleanup base models
-        $directory = $this->directory;
-//        $baseModelDirectory = $directory . '/Base';
-        $collectionDirectory = $directory . '/Collection';
         $namespace = $this->namespace;
+
+        // cleanup base models
+        $directory = $this->directory . '/' . $namespace;
+
+        $collectionDirectory = $directory . '/Collection';
 //
 //        if (is_file($baseModelDirectory)) {
 //            $dir = dir($baseModelDirectory);
