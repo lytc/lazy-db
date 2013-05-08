@@ -236,7 +236,7 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
         if (null === $this->countAll) {
             $select = clone $this->select;
             $select->resetColumn()->resetOrder()->resetLimit()->column('COUNT(*)');
-            $this->countAll = $select->fetchColumn();
+            $this->countAll = (int) $select->fetchColumn();
         }
 
         return $this->countAll;
