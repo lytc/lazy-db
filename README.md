@@ -28,10 +28,6 @@ abstract class AbstractModel extends \Lazy\Db\Model\AbstractModel
 <?php
 class User extends AbstractModel
 {
-    // protected static $primaryKey = 'id'; default is 'id'
-    protected static $tableName = 'users';
-    protecte static $collectionClass = 'Users';
-    
     protected static $columnsSchema = [
       'id'        => 'int',
       'name'      => 'varchar',
@@ -40,23 +36,14 @@ class User extends AbstractModel
       'activated' => 'tinyint'
     ],
     
-    protected static $immediatelySelectColumns = ['id', 'name', 'username', 'password', 'activated'];
-    
-    protected static $oneToMany = [
-      'Posts' => ['model' => 'Post', 'key' => 'user_id']
-    ];
+    protected static $oneToMany = ['Posts'];
 }
 
 class Users extend \Lazy\Db\Model\AbstractCollection
-{
-    protected static $modelClass = 'User';
-}
+{}
 
 class Post extends AbstractModel
-{
-    protected static $tableName = 'posts';
-    protecte static $collectionClass = 'Posts';
-    
+{    
     protected static $columnsSchema = [
       'id'            => 'int',
       'user_id'       => 'int',
@@ -66,17 +53,11 @@ class Post extends AbstractModel
       'modified_time' => 'timestamp',
     ],
     
-    protected static $immediatelySelectColumns = ['id', 'user_id', 'name', 'created_time', 'modified_time'];
-    
-    protected static $manyToOne = [
-      'User' => ['model' => 'User', 'key' => 'user_id']
-    ];
+    protected static $manyToOne = ['User'];
 }
 
 class Posts extend \Lazy\Db\Model\AbstractCollection
-{
-    protected static $modelClass = 'Post';
-}
+{}
 ```
 
 ###3 Interact with models
