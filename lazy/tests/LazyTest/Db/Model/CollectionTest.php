@@ -85,4 +85,10 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(array('name1' => '1', 'name2' => '2'), $users->fetchPair(1, 0));
         $this->assertSame(array('name1' => '1', 'name2' => '2'), $users->fetchPair('name', 'id'));
     }
+
+    public function testCountAll()
+    {
+        $users = User::all()->limit(2);
+        $this->assertEquals(4, $users->countAll());
+    }
 }

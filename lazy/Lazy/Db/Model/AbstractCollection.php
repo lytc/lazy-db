@@ -3,6 +3,7 @@
 namespace Lazy\Db\Model;
 
 use Lazy\Db\Exception\Exception;
+use Lazy\Db\Inflector;
 use Lazy\Db\Sql\Select;
 
 /**
@@ -49,6 +50,11 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
     /**
      * @var int
      */
+    protected $countAll;
+
+    /**
+     * @var int
+     */
     protected $position = 0;
 
     /**
@@ -78,6 +84,20 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
      */
     public static function modelClass()
     {
+        if (!isset(static::$modelClass)) {
+            static $modelClass;
+
+            if (!$modelClass) {
+                $className = get_called_class();
+                $parts = explode('\\', $className);
+                $classNameWithoutNamespace = array_pop($parts);
+                $parts[] = Inflector::singularize($classNameWithoutNamespace);
+                $modelClass = '\\' . implode('\\', $parts);
+            }
+
+            return $modelClass;
+        }
+
         return static::$modelClass;
     }
 
@@ -167,13 +187,24 @@ abstract class AbstractCollection implements \Countable, \ArrayAccess, \Iterator
     }
 
     /**
-     * @param int|String $columnKey
-     * @param int|String $columnValue
+     * @param int|string $columnKey
+     * @param int|string $columnValue
      * @return array
      */
     public function fetchPair($columnKey = 0, $columnValue = 1)
     {
         return array_combine($this->fetchColumn($columnKey), $this->fetchColumn($columnValue));
+    }
+
+    public function countAll()
+    {
+        if (null === $this->countAll) {
+            $select = clone $this->select;
+            $select->resetColumn()->resetOrder()->resetLimit()->column('COUNT(*)');
+            $this->countAll = $select->fetchColumn();
+        }
+
+        return $this->countAll;
     }
 
     /**

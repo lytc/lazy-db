@@ -3,10 +3,13 @@
 namespace Lazy\Db\Model;
 
 use Lazy\Db\Exception\Exception;
+use Lazy\Db\Pdo;
 use Lazy\Db\Sql\Select;
 use Lazy\Db\Sql\Insert;
 use Lazy\Db\Sql\Update;
 use Lazy\Db\Sql\Delete;
+use Lazy\Db\Expr;
+use Lazy\Db\Inflector;
 
 /**
  * Class AbstractModel
@@ -17,7 +20,7 @@ abstract class AbstractModel
     /**
      * @var String
      */
-    protected static $primaryKey;
+    protected static $primaryKey = 'id';
 
     /**
      * @var String
@@ -32,7 +35,34 @@ abstract class AbstractModel
     /**
      * @var array
      */
+    protected static $defaultColumnsSchema = array(
+        'int'           => array('length' => 11, 'nullable' => false, 'unsigned' => true),
+        'tinyint'       => array('length' => 1, 'nullable' => false, 'default' => 0),
+        'varchar'       => array('length' => 255, 'nullable' => false),
+        'text'          => array('nullable' => false),
+        'mediumtext'    => array('nullable' => false),
+        'longtext'      => array('nullable' => false),
+        'date'          => array('nullable' => false),
+        'time'          => array('nullable' => false),
+        'datetime'      => array('nullable' => false),
+        'timestamp'     => array('nullable' => false, 'onUpdateCurrentTimeStamp' => true),
+    );
+
+    /**
+     * @var Expr
+     */
+    protected static $exprNow;
+
+    /**
+     * @var array
+     */
     protected static $columnsSchema;
+
+    /**
+     * @var array
+     */
+    protected static $defaultImmediatelySelectColumnTypes = array(
+        'int', 'tinyint', 'varchar', 'float', 'date', 'time', 'datetime', 'timestamp');
 
     /**
      * @var array
@@ -99,6 +129,14 @@ abstract class AbstractModel
      */
     protected $collection;
 
+    /**
+     * @var Pdo
+     */
+    protected static $pdo;
+
+    /**
+     * @var bool
+     */
     protected $initialize;
 
     /**
@@ -131,16 +169,19 @@ abstract class AbstractModel
      */
     public static function tableName()
     {
-        return static::$tableName;
-    }
+        if (!isset(static::$tableName)) {
+            static $tableName;
 
-    /**
-     * @codeCoverageIgnore
-     * @return array
-     */
-    public static function columnSchema()
-    {
-        return static::$columnsSchema;
+            if (!$tableName) {
+                $className = get_called_class();
+                $classNameWithoutNamespace = array_pop(explode('\\', $className));
+                $tableName = Inflector::tableize($classNameWithoutNamespace);
+            }
+
+            return $tableName;
+        }
+
+        return static::$tableName;
     }
 
     /**
@@ -149,7 +190,94 @@ abstract class AbstractModel
      */
     public static function collectionClass()
     {
+        if (!isset(static::$collectionClass)) {
+            static $collectionClass;
+
+            if (!$collectionClass) {
+                $className = get_called_class();
+                $parts = explode('\\', $className);
+                $classNameWithoutNamespace = array_pop($parts);
+                $parts[] = Inflector::pluralize($classNameWithoutNamespace);
+                $collectionClass = '\\' . implode('\\', $parts);
+            }
+
+            return $collectionClass;
+        }
+
         return static::$collectionClass;
+    }
+
+    public static function exprNow()
+    {
+        if (!self::$exprNow) {
+            self::$exprNow = new Expr('NOW()');
+        }
+        return self::$exprNow;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @return array
+     */
+    public static function immediatelySelectColumns()
+    {
+        if (!isset(static::$immediatelySelectColumns)) {
+            static $immediatelySelectColumns;
+
+            if (!$immediatelySelectColumns) {
+                $immediatelySelectColumns = array();
+                foreach (static::columnSchema() as $columnName => $columnSchema) {
+                    if (in_array($columnSchema['type'], self::$defaultImmediatelySelectColumnTypes)) {
+                        $immediatelySelectColumns[] = $columnName;
+                    }
+                }
+            }
+
+            return $immediatelySelectColumns;
+        }
+
+        return static::$immediatelySelectColumns;
+    }
+
+    protected static function processColumnsSchema()
+    {
+        static $processedColumnsSchema;
+
+        if (!$processedColumnsSchema) {
+            foreach (static::$columnsSchema as  &$columnSchema) {
+                if (is_string($columnSchema)) {
+                    $columnSchema = array('type' => $columnSchema);
+                }
+
+                $type = $columnSchema['type'];
+                $columnSchema = $columnSchema + self::$defaultColumnsSchema[$type];
+
+                switch ($type) {
+                    case 'date':
+                    case 'time':
+                    case 'datetime':
+                    case 'timestamp':
+                        if (!array_key_exists('default', $columnSchema)) {
+                            $columnSchema['default'] = self::exprNow();
+                        }
+                        break;
+                }
+            }
+
+            # process specific for primary column
+            static::$columnsSchema[static::primaryKey()] += array('primaryKey' => true, 'autoIncrement' => true);
+            $processedColumnsSchema = true;
+        }
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @return array
+     */
+    public static function columnSchema()
+    {
+        static::processColumnsSchema();
+        return static::$columnsSchema;
     }
 
     /**
@@ -158,6 +286,35 @@ abstract class AbstractModel
      */
     public static function oneToMany()
     {
+        static $oneToManyProcessed;
+        if (!$oneToManyProcessed) {
+            $className = get_called_class();
+            $namespace = explode('\\', $className);
+            $classNameWithoutNamespace = array_pop($namespace);
+
+            static::$oneToMany = (array) static::$oneToMany;
+            $oneToMany = array();
+            foreach (static::$oneToMany as $refName => $refSchema) {
+                if (is_string($refSchema)) {
+                    $refName = $refSchema;
+                    $oneToMany[$refName] = array();
+                } else {
+                    $oneToMany[$refName] = $refSchema;
+                }
+
+                if (!isset($oneToMany[$refName]['model'])) {
+                    $modelClass = $namespace;
+                    $modelClass[] = Inflector::singularize($refName);
+                    $oneToMany[$refName]['model'] = '\\' . implode('\\', $modelClass);
+                }
+
+                if (!isset($oneToMany[$refName]['key'])) {
+                    $oneToMany[$refName]['key'] = strtolower($classNameWithoutNamespace) . '_id';
+                }
+            }
+
+            static::$oneToMany = $oneToMany;
+        }
         return static::$oneToMany;
     }
 
@@ -167,6 +324,35 @@ abstract class AbstractModel
      */
     public static function manyToOne()
     {
+        static $manyToOneProcessed;
+        if (!$manyToOneProcessed) {
+            $className = get_called_class();
+            $namespace = explode('\\', $className);
+            array_pop($namespace);
+
+            static::$manyToOne = (array) static::$manyToOne;
+            $manyToOne = array();
+            foreach (static::$manyToOne as $refName => $refSchema) {
+                if (is_string($refSchema)) {
+                    $refName = $refSchema;
+                    $manyToOne[$refName] = array();
+                } else {
+                    $manyToOne[$refName] = $refSchema;
+                }
+
+                if (!isset($manyToOne[$refName]['model'])) {
+                    $modelClass = $namespace;
+                    $modelClass[] = Inflector::singularize($refName);
+                    $manyToOne[$refName]['model'] = '\\' . implode('\\', $modelClass);
+                }
+
+                if (!isset($manyToOne[$refName]['key'])) {
+                    $manyToOne[$refName]['key'] = strtolower($refName) . '_id';
+                }
+            }
+
+            static::$manyToOne = $manyToOne;
+        }
         return static::$manyToOne;
     }
 
@@ -176,23 +362,64 @@ abstract class AbstractModel
      */
     public static function manyToMany()
     {
+        static $manyToManyProcessed;
+        if (!$manyToManyProcessed) {
+            $className = get_called_class();
+            $namespace = explode('\\', $className);
+            $classNameWithoutNamespace = array_pop($namespace);
+
+            static::$manyToMany = (array) static::$manyToMany;
+            $manyToMany = array();
+            foreach (static::$manyToMany as $refName => $refSchema) {
+                if (is_string($refSchema)) {
+                    $refName = $refSchema;
+                    $manyToMany[$refName] = array();
+                } else {
+                    $manyToMany[$refName] = $refSchema;
+                }
+
+                if (!isset($manyToMany[$refName]['model'])) {
+                    $modelClass = $namespace;
+                    $modelClass[] = Inflector::singularize($refName);
+                    $manyToMany[$refName]['model'] = '\\' . implode('\\', $modelClass);
+                }
+
+                if (!isset($manyToMany[$refName]['throughModel'])) {
+                    $modelClass = $namespace;
+                    $modelClass[] = $classNameWithoutNamespace . Inflector::singularize($refName);
+                    $manyToMany[$refName]['throughModel'] = '\\' . implode('\\', $modelClass);
+                }
+
+                if (!isset($manyToMany[$refName]['leftKey'])) {
+                    $manyToMany[$refName]['leftKey'] = strtolower($classNameWithoutNamespace) . '_id';
+                }
+
+                if (!isset($manyToMany[$refName]['rightKey'])) {
+                    $manyToMany[$refName]['rightKey'] = strtolower(Inflector::singularize($refName)) . '_id';
+                }
+
+
+            }
+
+            static::$manyToMany = $manyToMany;
+        }
         return static::$manyToMany;
     }
 
     /**
-     * @codeCoverageIgnore
-     * @return array
+     * @param Pdo $pdo
      */
-    public static function immediatelySelectColumns()
+    public static function setPdo(Pdo $pdo)
     {
-        return static::$immediatelySelectColumns;
+        static::$pdo = $pdo;
     }
-
 
     /**
      * @return \Lazy\Db\Pdo
      */
-    public static function getPdo(){}
+    public static function getPdo(){
+        return static::$pdo?: Pdo::getDefaultInstance();
+    }
 
     /**
      * @return Select

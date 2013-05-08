@@ -22,13 +22,21 @@ class DbSample
         $username = self::$username;
         $password = self::$password;
         $dbName = self::$dbName;
+        $sampleDbFile = __DIR__ . '/sample-database.sql';
+
+        Pdo::dbFirst(__DIR__ . '/Model', 'Model');
 
         if (getenv('LAZY_TEST_ENV') != 'travis') {
-            exec("mysql -h{$host} -u{$username} --password={$password} -e 'DROP DATABASE IF EXISTS `{$dbName}`'");
-            exec("mysql -h{$host} -u{$username} --password={$password} -e 'CREATE DATABASE `{$dbName}`'");
+            exec("mysql -h{$host} -u{$username} --password={$password} -e 'DROP DATABASE IF EXISTS `{$dbName}`;'");
+            exec("mysql -h{$host} -u{$username} --password={$password} -e 'CREATE DATABASE `{$dbName}`;'");
+            exec("mysql -h{$host} -u{$username} --password={$password} {$dbName} < {$sampleDbFile}");
         }
+
         $pdo = new Pdo("mysql:host={$host};dbname={$dbName}", $username, $password);
-        $pdo->exec(file_get_contents(__DIR__ . '/sample-database.sql'));
+
+        if (getenv('LAZY_TEST_ENV') == 'travis') {
+            $pdo->exec(file_get_contents(__DIR__ . '/sample-database.sql'));
+        }
 
         self::$pdo = $pdo;
 
