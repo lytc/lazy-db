@@ -38,6 +38,7 @@ abstract class AbstractModel
     protected static $defaultColumnsSchema = array(
         'int'           => array('length' => 11, 'nullable' => false, 'unsigned' => true),
         'tinyint'       => array('length' => 1, 'nullable' => false, 'default' => 0),
+        'float'         => array('length' => 30, 'nullable' => false, 'default' => 0),
         'varchar'       => array('length' => 255, 'nullable' => false),
         'text'          => array('nullable' => false),
         'mediumtext'    => array('nullable' => false),
