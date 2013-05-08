@@ -177,7 +177,7 @@ EOD;
         $namespace = $this->namespace;
 
         // cleanup base models
-        $directory = $this->directory . '/' . $namespace;
+        $directory = $this->directory . '/' . str_replace('\\', '/', $namespace);
 
         $collectionDirectory = $directory . '/Collection';
 //
