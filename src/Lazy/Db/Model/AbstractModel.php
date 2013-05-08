@@ -9,7 +9,7 @@ use Lazy\Db\Sql\Insert;
 use Lazy\Db\Sql\Update;
 use Lazy\Db\Sql\Delete;
 use Lazy\Db\Expr;
-use Lazy\Db\Inflector;
+use Doctrine\Common\Inflector\Inflector;
 
 /**
  * Class AbstractModel
@@ -177,6 +177,7 @@ abstract class AbstractModel
                 $parts = explode('\\', $className);
                 $classNameWithoutNamespace = array_pop($parts);
                 $tableName = Inflector::tableize($classNameWithoutNamespace);
+                $tableName = Inflector::pluralize($tableName);
             }
 
             return $tableName;
