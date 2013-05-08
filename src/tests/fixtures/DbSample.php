@@ -24,7 +24,7 @@ class DbSample
         $dbName = self::$dbName;
         $sampleDbFile = __DIR__ . '/sample-database.sql';
 
-        Pdo::dbFirst(__DIR__ . '/Model', 'Model');
+        Pdo::dbFirst(__DIR__, 'Model');
 
         if (getenv('LAZY_TEST_ENV') != 'travis') {
             exec("mysql -h{$host} -u{$username} --password={$password} -e 'DROP DATABASE IF EXISTS `{$dbName}`;'");
