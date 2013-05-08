@@ -3,8 +3,8 @@
 namespace Lazy\Db\Model;
 
 use Lazy\Db\Exception\Exception;
-use Lazy\Db\Inflector;
 use Lazy\Db\Sql\Select;
+use Doctrine\Common\Inflector\Inflector;
 
 /**
  * Class AbstractCollection

@@ -3,7 +3,7 @@
 namespace Lazy\Db\Model;
 
 use Lazy\Db\Pdo;
-use Lazy\Db\Inflector;
+use Doctrine\Common\Inflector\Inflector;
 
 class Generator
 {
@@ -93,7 +93,9 @@ EOD;
         $stmt = $this->pdo->query($query);
         $this->tables = $stmt->fetchAll(\PDO::FETCH_COLUMN, 0);
 
-        $this->tables = array_combine($this->tables, array_map(array($this->inflector, 'classify'), $this->tables));
+        $classNames = array_map(array($this->inflector, 'classify'), $this->tables);
+        $classNames = array_map(array($this->inflector, 'singularize'), $classNames);
+        $this->tables = array_combine($this->tables, $classNames);
     }
 
     protected function initColumnSchema()
@@ -149,9 +151,9 @@ EOD;
                 $modelName = $this->tables[$tableName];
                 $referenceModelName = $this->tables[$referenceTableName];
                 isset($this->manyToOne[$modelName]) || ($this->manyToOne[$modelName] = array());
-                $this->manyToOne[$modelName][$this->inflector->camelize(preg_replace('/_id$/', '', $foreignKey))] = array($foreignKey, $this->tables[$referenceTableName]);
+                $this->manyToOne[$modelName][ucfirst($this->inflector->camelize(preg_replace('/_id$/', '', $foreignKey)))] = array($foreignKey, $this->tables[$referenceTableName]);
                 isset($this->oneToMany[$referenceModelName]) || ($this->oneToMany[$referenceModelName] = array());
-                $this->oneToMany[$referenceModelName][$this->inflector->camelize($tableName)] = array($foreignKey, $modelName);
+                $this->oneToMany[$referenceModelName][ucfirst($this->inflector->camelize($tableName))] = array($foreignKey, $modelName);
             }
         }
         // manyToMany
@@ -245,7 +247,7 @@ EOD;
                 }
 
 
-                $columnNameCamelize = lcfirst($this->inflector->camelize($columnName));
+                $columnNameCamelize = $this->inflector->camelize($columnName);
                 $space = str_repeat(' ', $longestColumnNameLength - strlen($columnNameCamelize));
                 $columns .= "        '$columnNameCamelize' $space=> '$columnName'," . PHP_EOL;
                 $columnSchema = array();
