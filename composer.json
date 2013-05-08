@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Lazy\\Db\\": "src/Lazy",
+            "Lazy\\Db\\": "src",
             "LazyTest\\Db": "src/tests"
         }
     }
