@@ -436,6 +436,24 @@ abstract class AbstractModel
     /**
      * @return Delete
      */
+    public static function createSqlInsert()
+    {
+        $insert = new Insert(static::getPdo(), static::tableName());
+        return $insert;
+    }
+
+    /**
+     * @return Delete
+     */
+    public static function createSqlUpdate()
+    {
+        $update = new Update(static::getPdo(), static::tableName());
+        return $update;
+    }
+
+    /**
+     * @return Delete
+     */
     public static function createSqlDelete()
     {
         $delete = new Delete(static::getPdo(), static::tableName());
@@ -492,6 +510,96 @@ abstract class AbstractModel
     public static function create(array $data)
     {
         return new static($data);
+    }
+
+    /**
+     * @param array $data
+     * @return int
+     */
+    public static function insert(array $data)
+    {
+        $insert = static::createSqlInsert();
+        $insert->value($data);
+
+        $pdo = static::getPdo();
+
+        if ($pdo->inTransaction()) {
+            return $insert->exec();
+        }
+
+        $pdo->beginTransaction();
+        try {
+            $result = $insert->exec();
+            $pdo->commit();
+            return $result;
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    /**
+     * @param array $data
+     * @param string|array $where
+     * @return int
+     */
+    public static function update(array $data, $where)
+    {
+        if (is_int($where)) {
+            $where = array(static::primaryKey() => $where);
+        }
+
+        $update = static::createSqlUpdate();
+        $update->data($data)->where($where);
+
+        $pdo = static::getPdo();
+
+        if ($pdo->inTransaction()) {
+            return $update->exec();
+        }
+
+        $pdo->beginTransaction();
+
+        try {
+            $result = $update->exec();
+            $pdo->commit();
+            return $result;
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    /**
+     * @param string|array|int $where
+     * @return int
+     * @throws \Exception
+     */
+    public static function remove($where)
+    {
+        if (is_int($where)) {
+            $where = array(static::primaryKey() => $where);
+        }
+
+        $delete = static::createSqlDelete();
+        $delete->where($where);
+
+        $pdo = static::getPdo();
+
+        if ($pdo->inTransaction()) {
+            return $delete->exec();
+        }
+
+        $pdo->beginTransaction();
+
+        try {
+            $result = $delete->exec();
+            $pdo->commit();
+            return $result;
+        } catch (\Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
     }
 
     /**

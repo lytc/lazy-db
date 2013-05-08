@@ -2,6 +2,7 @@
 
 namespace LazyTest\Db\Model;
 
+use LazyTest\Db\DbSample;
 use Model\User;
 
 class ModelTest extends \PHPUnit_Framework_TestCase
@@ -342,5 +343,82 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $user = User::create(array('name' => 'namexxx'));
         $this->assertInstanceOf('\Model\User', $user);
         $this->assertSame('namexxx', $user->name);
+    }
+
+    public function testStaticInsert()
+    {
+        $data = array(
+            array('name' => 'name_1'),
+            array('name' => 'name_2'),
+            array('name' => 'name_3'),
+        );
+
+        $count = User::all()->countAll();
+
+        $result = User::insert($data);
+        $this->assertSame(3, $result);
+        $this->assertSame($count + 3, User::all()->countAll());
+
+        DbSample::reset();
+    }
+
+    public function testStaticUpdate()
+    {
+        $data = array(
+            'name' => 'name_xxx'
+        );
+
+        $result = User::update($data, array('id > ?' => 1));
+        $this->assertSame(3, $result);
+
+        $user1 = User::first();
+        $this->assertSame('name1', $user1->name);
+
+        $user2 = User::first(2);
+        $this->assertSame('name_xxx', $user2->name);
+
+        $user2 = User::first(3);
+        $this->assertSame('name_xxx', $user2->name);
+
+        DbSample::reset();
+    }
+
+    public function testStaticUpdateWithPrimaryKeyValue()
+    {
+        $user = User::first();
+        $this->assertSame('name1', $user->name);
+
+        $data = array(
+            'name' => 'name_xxx'
+        );
+
+        User::update($data, $user->id);
+        $this->assertSame('name_xxx', User::first()->name);
+        $this->assertSame('name2', User::first(2)->name);
+
+        DbSample::reset();
+
+    }
+
+    public function testStaticRemove()
+    {
+        $count = User::all()->countAll();
+        $result = User::remove(array('id IN(?)' => array(1, 3)));
+
+        $this->assertSame(2, $result);
+        $this->assertSame($count - 2, User::all()->countAll());
+        $this->assertNull(User::first(1));
+        $this->assertNull(User::first(3));
+
+        DbSample::reset();
+    }
+
+    public function testStaticRemoveWithPrimaryKeyValue()
+    {
+        $count = User::all()->countAll();
+        User::remove(1);
+        $this->assertSame($count - 1, User::all()->countAll());
+
+        DbSample::reset();
     }
 }
