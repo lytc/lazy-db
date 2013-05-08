@@ -8,4 +8,4 @@ php:
   - 5.4
   - 5.5
 
-script: phpunit -c lazy/tests/phpunit.xml --testsuite Lazy_Db_Test_Suite
+script: phpunit -c src/tests/phpunit.xml --testsuite Lazy_Db_Test_Suite
