@@ -3,6 +3,7 @@
 namespace LazyTest\Db\Model;
 
 use Lazy\Db\Stmt;
+use LazyTest\Db\DbSample;
 use Model\User;
 
 class CollectionTest extends \PHPUnit_Framework_TestCase
@@ -90,5 +91,21 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     {
         $users = User::all()->limit(2);
         $this->assertEquals(4, $users->countAll());
+    }
+
+    public function testDelete()
+    {
+        $users = User::all();
+        $this->assertCount(4, $users);
+
+        $users->delete();
+        $this->assertCount(0, $users);
+        $this->assertSame(array(), $users->toArray());
+        $this->assertNull($users->get(1));
+
+        $users = User::all();
+        $this->assertCount(0, $users);
+
+        DbSample::reset();
     }
 }

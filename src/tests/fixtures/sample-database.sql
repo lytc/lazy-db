@@ -1,3 +1,12 @@
+SET FOREIGN_KEY_CHECKS = 0;
+
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `products`;
+DROP TABLE IF EXISTS `orders`;
+DROP TABLE IF EXISTS `permissions`;
+DROP TABLE IF EXISTS `user_permissions`;
+DROP TABLE IF EXISTS `posts`;
+
 CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -66,3 +75,5 @@ INSERT INTO `orders` VALUES ('1', '1', '1', '0', '2013-05-03 00:25:05', '2013-05
 INSERT INTO `permissions` VALUES ('1', 'name1'), ('2', 'name2'), ('3', 'name3'), ('4', 'name4');
 INSERT INTO `user_permissions` VALUES ('1', '1'), ('1', '2'), ('2', '3'), ('2', '4');
 INSERT INTO `posts` VALUES ('1', '1', 'name1', 'content1', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('2', '1', 'name2', 'content2', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('3', '1', 'name3', 'content3', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('4', '1', 'name4', 'content4', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('5', '2', 'name5', 'content5', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('6', '2', 'name6', 'content6', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('7', '2', 'name7', 'content7', '2013-05-03 21:57:06', '2013-05-03 21:57:06'), ('8', '2', 'name8', 'content8', '2013-05-03 21:57:06', '2013-05-03 21:57:06');
+
+SET FOREIGN_KEY_CHECKS = 1;
