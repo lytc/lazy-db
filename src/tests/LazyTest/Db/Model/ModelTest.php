@@ -333,4 +333,14 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($newName, User::first($user->id)->name);
         $user->delete();
     }
+
+    /**
+     * @covers \Lazy\Db\Model\AbstractModel::create
+     */
+    public function testCreate()
+    {
+        $user = User::create(array('name' => 'namexxx'));
+        $this->assertInstanceOf('\Model\User', $user);
+        $this->assertSame('namexxx', $user->name);
+    }
 }
