@@ -174,7 +174,8 @@ abstract class AbstractModel
 
             if (!$tableName) {
                 $className = get_called_class();
-                $classNameWithoutNamespace = array_pop(explode('\\', $className));
+                $parts = explode('\\', $className);
+                $classNameWithoutNamespace = array_pop($parts);
                 $tableName = Inflector::tableize($classNameWithoutNamespace);
             }
 
