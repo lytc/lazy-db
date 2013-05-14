@@ -12,15 +12,16 @@ THIS RELEASE IS A DEVELOPMENT RELEASE AND NOT INTENDED FOR PRODUCTION USE. PLEAS
 - Solving N+1 problem
 
 ###Getting Start
-####1. Define an abstract model
+####1. Setup connection
 ```php
 <?php
-abstract class AbstractModel extends \Lazy\Db\Model\AbstractModel
-{
-    public function getPdo() {
-        return new \Lazy\Db\Pdo('mysql:host=localhost;dbname=my_db', 'username', 'password');
-    }
-}
+Connection::setEnv(Connection::ENV_DEVELOPMENT);
+Connection::setDefaultConfig(array(
+    'development' => array(
+        'dsn' => 'mysql:host=localhost;dbname=lazy_db_test',
+        'username' => 'root'
+    )
+));
 ```
 
 ###2. Define models & collections
@@ -39,9 +40,6 @@ class User extends AbstractModel
     protected static $oneToMany = ['Posts'];
 }
 
-class Users extend \Lazy\Db\Model\AbstractCollection
-{}
-
 class Post extends AbstractModel
 {
     protected static $columnsSchema = [
@@ -55,9 +53,6 @@ class Post extends AbstractModel
 
     protected static $manyToOne = ['User'];
 }
-
-class Posts extend \Lazy\Db\Model\AbstractCollection
-{}
 ```
 
 ###3 Interact with models
