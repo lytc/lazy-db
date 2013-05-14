@@ -2,11 +2,10 @@ before_script:
   - composer install
   - mysql -e 'CREATE DATABASE lazy_db_test;'
 
-env: LAZY_TEST_ENV=travis
 language: php
 php:
   - 5.3
   - 5.4
   - 5.5
 
-script: phpunit -c src/tests/phpunit.xml --testsuite Lazy_Db_Test_Suite
+script: phpunit -c src/tests/phpunit.xml tests

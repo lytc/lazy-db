@@ -1,4 +1,6 @@
 .DS_Store
 .idea
-vendor
 composer.lock
+vendor
+coverage
+tests/LazyTest/Db/Model/Generate
