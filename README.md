@@ -59,7 +59,7 @@ class Post extends AbstractModel
 }
 ```
 
-###3 Interact with models
+###3. Interact with models
 ```php
 # find one by primary key value
 $user = User::first(1);
