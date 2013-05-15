@@ -24,8 +24,10 @@ Connection::setDefaultConfig(array(
 ));
 ```
 
-###2. Define models & collections
+###2. Define models
 ```php
+use Lazy\Db\AbstractModel;
+
 <?php
 class User extends AbstractModel
 {
@@ -59,7 +61,6 @@ class Post extends AbstractModel
 ```php
 # find one by primary key value
 $user = User::first(1);
-// $user = User::first(['name' => 'Join']);
 echo $user->name;
 foreach ($user->Posts as $post) {
     echo $post->name;
@@ -67,7 +68,6 @@ foreach ($user->Posts as $post) {
 
 # find all
 $users = User::all(['activated' => 1])->limit(3);
-// $users = User::all()->where(['activated' => 1])->limit(3);
 foreach ($users as $user) {
   echo $user->name;
   foreach ($user->Posts as $post) {
