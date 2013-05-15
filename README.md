@@ -77,6 +77,6 @@ foreach ($users as $user) {
   }
 }
 // in this case, it just execute 2 queries
-# SELECT id, name, username, password, activated FROM users WHERE (activated = 1) LIMIT 10;
+# SELECT id, name, username, password, activated FROM users WHERE (activated = 1) LIMIT 3;
 # SELECT id, user_id, name, created_time, modified_time FROM posts WHERE (user_id IN(1, 2, 3));
 ```
