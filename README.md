@@ -15,6 +15,8 @@ THIS RELEASE IS A DEVELOPMENT RELEASE AND NOT INTENDED FOR PRODUCTION USE. PLEAS
 ####1. Setup connection
 ```php
 <?php
+use Lazy\Db\Connection;
+
 Connection::setEnv(Connection::ENV_DEVELOPMENT);
 Connection::setDefaultConfig(array(
     'development' => array(
