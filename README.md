@@ -28,9 +28,9 @@ Connection::setDefaultConfig(array(
 
 ###2. Define models
 ```php
+<?php
 use Lazy\Db\AbstractModel;
 
-<?php
 class User extends AbstractModel
 {
     protected static $columnsSchema = [
