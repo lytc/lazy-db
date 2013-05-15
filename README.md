@@ -33,7 +33,7 @@ use Lazy\Db\AbstractModel;
 
 class User extends AbstractModel
 {
-    protected static $columnsSchema = [
+    protected static $columns = [
       'id'        => 'int',
       'name'      => 'varchar',
       'username'  => 'varchar',
@@ -46,7 +46,7 @@ class User extends AbstractModel
 
 class Post extends AbstractModel
 {
-    protected static $columnsSchema = [
+    protected static $columns = [
       'id'            => 'int',
       'user_id'       => 'int',
       'name'          => 'varchar',
