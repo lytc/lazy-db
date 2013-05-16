@@ -92,7 +92,9 @@ class Generator
             );
         }
 
+
         $this->driver->parseConstraints($schemas, $this->namespace);
+//        echo json_encode($schemas); exit;
 
         $this->schemas = $schemas;
 
@@ -184,7 +186,36 @@ class Generator
 
             $modelClassName = Inflector::classify(Inflector::singularize($tableName));
 
-            $classContentParts[] = "abstract class Abstract$modelClassName" . ($rootAbstractModelClassName? " extends $rootAbstractModelClassName" : '');
+            # properties columns
+            $properties = array();
+            foreach ($schema['columns'] as $columnName => $columnSchema) {
+                $properties[] = ' * @property ' . $columnSchema['type'] . ' ' . Inflector::camelize($columnName);
+            }
+
+            # properties one to many
+            if (!empty($schema['oneToMany'])) {
+                foreach ($schema['oneToMany'] as $refName => $oneToManySchema) {
+                    $properties[] = ' * @property \Lazy\Db\Collection ' . $refName;
+                }
+            }
+
+            # properties many to one
+            if (!empty($schema['manyToOne'])) {
+                foreach ($schema['manyToOne'] as $refName => $manyToOneSchema) {
+                    $properties[] = ' * @property \\' . str_replace('\\\\', '\\', $manyToOneSchema['model']) . ' ' . $refName;
+                }
+            }
+
+            # properties many to many
+            if (!empty($schema['manyToMany'])) {
+                foreach ($schema['manyToMany'] as $refName => $manyToManySchema) {
+                    $properties[] = ' * @property \Lazy\Db\Collection ' . $refName;
+                }
+            }
+
+            $classContentParts[] = '/**' . PHP_EOL . implode(PHP_EOL, $properties) . PHP_EOL . ' */';
+
+            $classContentParts[] = "abstract class Abstract$modelClassName extends " . ($rootAbstractModelClassName? $rootAbstractModelClassName : '\Lazy\Db\AbstractModel');
             $classContentParts[] = '{';
 
             # columns
@@ -274,13 +305,18 @@ class Generator
         $namespace = $this->namespace;
 
         foreach ($this->schemas as $tableName => $schema) {
+            $modelClassName = Inflector::classify(Inflector::singularize($tableName));
+            $fileName = $this->getDirectory() . '/' . $modelClassName . '.php';
+
+            if (file_exists($fileName)) {
+                continue;
+            }
+
             $classContentParts = array('<?php');
 
             if ($namespace) {
                 $classContentParts[] = "namespace $namespace;";
             }
-
-            $modelClassName = Inflector::classify(Inflector::singularize($tableName));
 
             if ($this->generateAbstractModel) {
                 $classContentParts[] = "use $namespace\\AbstractModel\\Abstract$modelClassName;" . PHP_EOL;
@@ -293,7 +329,6 @@ class Generator
             $classContentParts[] = '{';
             $classContentParts[] = '}';
 
-            $fileName = $this->getDirectory() . '/' . $modelClassName . '.php';
             $classContent = implode(PHP_EOL, $classContentParts);
             file_put_contents($fileName, $classContent);
         }

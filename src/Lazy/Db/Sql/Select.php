@@ -277,7 +277,7 @@ class Select
 
     /**
      * @param int|Limit $offset
-     * @return $this|Limit
+     * @return $this|Offset
      */
     public function offset($offset = null)
     {

@@ -190,13 +190,33 @@ class ModelTest extends TestCase
         $this->assertSame(array(), User::getLazyLoadColumns());
     }
 
-    public function testToArray()
+    public function testMethodRemove()
     {
-        $user = User::first();
-        $this->assertSame(array('id' => '1', 'name' => 'name1'), $user->toArray());
+        $connection = $this->getMockConnection(array('exec'));
+        $connection->expects($this->once())
+            ->method('exec')
+            ->with($this->equalTo("DELETE FROM users WHERE (id IN(1, 2, 3))"));
 
-        $user->name = 'name';
-        $this->assertSame(array('id' => '1', 'name' => 'name'), $user->toArray());
-        $this->assertSame(array('id' => '1', 'name' => 'name1'), $user->toArray(false));
+        $prevConnection = User::getConnection();
+        User::setConnection($connection);
+
+        User::remove([1, 2, 3]);
+
+        User::setConnection($prevConnection);
+    }
+
+    public function testMethodInsert()
+    {
+        $connection = $this->getMockConnection(array('exec'));
+        $connection->expects($this->once())
+            ->method('exec')
+            ->with($this->equalTo("INSERT INTO users (name) VALUES ('name1'), ('name2')"));
+
+        $prevConnection = User::getConnection();
+        User::setConnection($connection);
+
+        User::insert(array(array('name' => 'name1'), array('name' => 'name2')));
+
+        User::setConnection($prevConnection);
     }
 }

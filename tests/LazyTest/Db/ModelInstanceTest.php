@@ -77,6 +77,13 @@ class ModelInstanceTest extends TestCase
         $this->assertEquals($expected, $user->toArray());
     }
 
+    public function testFromArray()
+    {
+        $user = new User();
+        $user->fromArray(array('name' => 'name', 'foo' => 'foo'));
+        $this->assertSame(array('name' => 'name'), $user->toArray());
+    }
+
     public function testMethodIsDirty()
     {
         $user = new User();

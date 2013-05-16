@@ -503,7 +503,7 @@ abstract class AbstractModel
 
                 if (!isset($schema['through'])) {
                     $schema['through'] = $namespace . $classNameWithoutNamespace . Inflector::singularize($name);
-                } elseif ($namespace && false === strpos('\\', $schema['through'])) {
+                } elseif ($namespace && false === strpos($schema['through'], '\\')) {
                     $schema['through'] = $namespace . $schema['through'];
                 }
 
@@ -569,11 +569,18 @@ abstract class AbstractModel
      */
     public static function createSqlSelect($columns = null)
     {
+        $tableName = static::getTableName();
         $select = new Select(static::getConnection());
-        $select->from(static::getTableName());
+        $select->from($tableName);
 
         if (!$columns) {
             $columns = static::getDefaultSelectColumns();
+            $columns = array_map(function($column) use ($tableName) {
+                if (false === strpos($column, '.')) {
+                    $column = $tableName . '.' . $column;
+                }
+                return $column;
+            }, $columns);
         }
 
         $select->column($columns);
@@ -617,7 +624,7 @@ abstract class AbstractModel
     /**
      * @param string|array $where optional
      * @param string|array $columns optional
-     * @return null|static
+     * @return static
      */
     public static function first($where = null, $columns = null)
     {
@@ -681,6 +688,36 @@ abstract class AbstractModel
         return new static($data);
     }
 
+    public static function remove($where)
+    {
+        if (is_numeric($where)) {
+            $where = array($where);
+        }
+
+        if (is_array($where)) {
+            $isPrimaryKeyValueList = true;
+            foreach ($where as $index => $item) {
+                if (!is_numeric($index) || !is_numeric($item)) {
+                    $isPrimaryKeyValueList = false;
+                }
+            }
+
+            if ($isPrimaryKeyValueList) {
+                $where = array(static::getPrimaryKey() . ' IN(?)' => $where);
+            }
+        }
+
+        $delete = static::createSqlDelete();
+        $delete->where($where);
+        return $delete->exec();
+    }
+
+    public static function insert(array $data)
+    {
+        $insert = static::createSqlInsert();
+        $insert->value($data);
+        return $insert->exec();
+    }
 
     /////
     /**
@@ -732,7 +769,7 @@ abstract class AbstractModel
         if (isset($data[static::getPrimaryKey()])) {
             $this->data = $data;
         } else {
-            $this->dirtyData = $data;
+            $this->fromArray($data);
         }
 
         $this->collection = $collection;
@@ -983,6 +1020,11 @@ abstract class AbstractModel
             return $this;
         }
 
+        if (static::getManyToOneSchema($name)) {
+            $this->associationData[$name] = $value;
+            return $this;
+        }
+
         if (array_key_exists($nameUnderscore, $this->data)) {
             if ($this->data[$nameUnderscore] == $value) {
                 unset($this->dirtyData[$nameUnderscore]);
@@ -1006,6 +1048,21 @@ abstract class AbstractModel
     public function __set($name, $value)
     {
         return $this->set($name, $value);
+    }
+
+    /**
+     * @param array $data
+     * @return $this
+     */
+    public function fromArray(array $data)
+    {
+        foreach ($data as $key => $value) {
+            if (array_key_exists($key, static::getColumnSchema())) {
+                $this->set($key, $value, false, true);
+            }
+        }
+
+        return $this;
     }
 
     /**

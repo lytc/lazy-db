@@ -11,7 +11,13 @@ class CollectionTest extends TestCase
 {
     public function testCount()
     {
-        $this->assertSame(4, count(User::all()));
+        $this->assertCount(4, User::all());
+    }
+
+    public function testCountAll()
+    {
+        $users = User::all()->limit(2);
+        $this->assertSame(4, $users->countAll());
     }
 
     public function testToArray()

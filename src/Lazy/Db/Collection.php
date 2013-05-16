@@ -65,6 +65,11 @@ class Collection implements \Countable, \Iterator
     /**
      * @var int
      */
+    protected $countAll;
+
+    /**
+     * @var int
+     */
     protected $position = 0;
 
     /**
@@ -204,6 +209,16 @@ class Collection implements \Countable, \Iterator
                 return $model;
             }
         }
+    }
+
+    public function countAll()
+    {
+        if (null === $this->countAll) {
+            $select = clone $this->select;
+            $select->resetColumn()->resetOrder()->resetLimit()->column('COUNT(*)');
+            $this->countAll = (int) $select->fetchColumn();
+        }
+        return $this->countAll;
     }
 
     /**

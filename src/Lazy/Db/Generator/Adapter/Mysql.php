@@ -25,6 +25,10 @@ class Mysql extends AbstractAdapter
             if (preg_match('/^(\w+)\((\d+)\)/', $row['Type'], $matches)) {
                 $type = $matches[1];
                 $length = $matches[2];
+            } elseif (preg_match('/^(\w+)\((\d+),(\d+)\)/', $row['Type'], $matches)) {
+                $type = $matches[1];
+                $length = $matches[2];
+                $decimals = $matches[3];
             } else {
                 $type = $row['Type'];
             }
@@ -33,6 +37,10 @@ class Mysql extends AbstractAdapter
 
             if (isset($length)) {
                 $schema['length'] = (int) $length;
+            }
+
+            if (isset($decimals)) {
+                $schema['decimals'] = (int) $decimals;
             }
 
             if (in_array($type, $this->numericTypes)) {
@@ -65,7 +73,7 @@ class Mysql extends AbstractAdapter
         preg_match_all($pattern, $stmt->fetchColumn(1), $matches, PREG_SET_ORDER);
         if ($matches) {
             foreach ($matches as $item) {
-                $result[$item['refTable']] = $item['foreignKey'];
+                $result[$item['foreignKey']] = $item['refTable'];
             }
         }
 
