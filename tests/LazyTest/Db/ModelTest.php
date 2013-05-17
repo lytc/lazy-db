@@ -200,7 +200,7 @@ class ModelTest extends TestCase
         $prevConnection = User::getConnection();
         User::setConnection($connection);
 
-        User::remove([1, 2, 3]);
+        User::remove(array(1, 2, 3));
 
         User::setConnection($prevConnection);
     }
