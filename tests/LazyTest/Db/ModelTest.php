@@ -48,7 +48,7 @@ class ModelTest extends TestCase
 
     public function testCreateSqlSelect()
     {
-        $expected = "SELECT id, name FROM users";
+        $expected = "SELECT users.id, users.name FROM users";
         $this->assertSame($expected, User::createSqlSelect()->toString());
 
         $expected = "SELECT * FROM users";
@@ -88,7 +88,7 @@ class ModelTest extends TestCase
         $connection = $this->getMockConnection(array('query'));
         $connection->expects($this->once())
             ->method('query')
-            ->with($this->equalTo("SELECT id, name FROM users LIMIT 1"));
+            ->with($this->equalTo("SELECT users.id, users.name FROM users LIMIT 1"));
 
         $prevConnection = User::getConnection();
         User::setConnection($connection);
@@ -104,7 +104,7 @@ class ModelTest extends TestCase
     public function testMethodAllShouldSupportWhereConditionWithPrimaryKeyList()
     {
         $users = User::all(array(1, 2, 3));
-        $expected = "SELECT id, name FROM users WHERE (id IN(1, 2, 3))";
+        $expected = "SELECT users.id, users.name FROM users WHERE (id IN(1, 2, 3))";
         $this->assertSame($expected, $users->getSqlSelect()->toString());
     }
 

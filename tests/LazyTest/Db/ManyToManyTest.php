@@ -15,7 +15,7 @@ class ManyToManyTest extends TestCase
         $user = User::first(1);
         $permissions = $user->Permissions;
 
-        $expectedSql = "SELECT id, name FROM permissions " .
+        $expectedSql = "SELECT permissions.id, permissions.name FROM permissions " .
                        "INNER JOIN user_permissions ON user_permissions.permission_id = permissions.id " .
                        "WHERE (user_permissions.user_id = '1')";
 
@@ -23,7 +23,7 @@ class ManyToManyTest extends TestCase
 
         $permission = Permission::first(1);
         $users = $permission->Users;
-        $expectedSql = "SELECT id, name FROM users " .
+        $expectedSql = "SELECT users.id, users.name FROM users " .
             "INNER JOIN user_permissions ON user_permissions.user_id = users.id " .
             "WHERE (user_permissions.permission_id = '1')";
 

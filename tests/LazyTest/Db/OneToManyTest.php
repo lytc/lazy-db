@@ -16,7 +16,7 @@ class OneToManyTest extends TestCase
         $this->assertInstanceOf('Lazy\Db\Collection', $posts);
         $this->assertSame($posts, $user->Posts);
 
-        $expectedSql = "SELECT id, user_id, name FROM posts WHERE (user_id = '1')";
+        $expectedSql = "SELECT posts.id, posts.user_id, posts.name FROM posts WHERE (user_id = '1')";
         $this->assertSame($expectedSql, $posts->getSqlSelect()->toString());
     }
 }

@@ -575,8 +575,11 @@ abstract class AbstractModel
 
         if (!$columns) {
             $columns = static::getDefaultSelectColumns();
+        }
+
+        if (is_array($columns)) {
             $columns = array_map(function($column) use ($tableName) {
-                if (false === strpos($column, '.')) {
+                if (preg_match('/^[\w_]+$/', $column)) {
                     $column = $tableName . '.' . $column;
                 }
                 return $column;
@@ -822,6 +825,8 @@ abstract class AbstractModel
         # lazy load
         if (array_key_exists($nameUnderscore, static::getColumnSchema())) {
             $primaryKey = static::getPrimaryKey();
+            $tableName = static::getTableName();
+
             if ($this->collection) {
                 $ids = $this->collection->column($primaryKey);
                 $lazyLoadSelect = static::createSqlSelect(array($primaryKey, $nameUnderscore));

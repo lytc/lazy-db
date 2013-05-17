@@ -60,7 +60,7 @@ class CollectionTest extends TestCase
     public function testGetSqlSelect()
     {
         $users = User::all();
-        $expected = "SELECT id, name FROM users";
+        $expected = "SELECT users.id, users.name FROM users";
         $this->assertSame($expected, $users->getSqlSelect()->toString());
     }
 
@@ -83,7 +83,7 @@ class CollectionTest extends TestCase
     public function testFallbackMethod()
     {
         $users = User::all()->where('id > 2')->order('id DESC')->limit(2);
-        $expectedSql = "SELECT id, name FROM users WHERE (id > 2) ORDER BY id DESC LIMIT 2";
+        $expectedSql = "SELECT users.id, users.name FROM users WHERE (id > 2) ORDER BY id DESC LIMIT 2";
         $this->assertSame($expectedSql, $users->getSqlSelect()->toString());
     }
 

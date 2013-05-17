@@ -22,8 +22,8 @@ class EagerLoadingTest extends TestCase
         $this->assertSame('content2', $post2->content);
 
         $this->assertSame(Statement::getQueriesLog(), array(
-            "SELECT id, user_id, name FROM posts LIMIT 2",
-            "SELECT id, content FROM posts WHERE (id IN('1', '2'))"
+            "SELECT posts.id, posts.user_id, posts.name FROM posts LIMIT 2",
+            "SELECT posts.id, posts.content FROM posts WHERE (id IN('1', '2'))"
         ));
     }
 
@@ -57,8 +57,8 @@ class EagerLoadingTest extends TestCase
         $this->assertSame($expected, $users->get(2)->Posts->toArray());
 
         $this->assertSame(Statement::getQueriesLog(), array(
-            "SELECT id, name FROM users",
-            "SELECT id, user_id, name FROM posts WHERE (user_id IN('1', '2', '3', '4')) ORDER BY id DESC"
+            "SELECT users.id, users.name FROM users",
+            "SELECT posts.id, posts.user_id, posts.name FROM posts WHERE (user_id IN('1', '2', '3', '4')) ORDER BY id DESC"
         ));
     }
 
@@ -74,8 +74,8 @@ class EagerLoadingTest extends TestCase
         $this->assertSame($posts->get(3)->User, $posts->get(4)->User);
 
         $this->assertSame(Statement::getQueriesLog(), array(
-            "SELECT id, user_id, name FROM posts",
-            "SELECT id, name FROM users WHERE (id IN('1', '2'))"
+            "SELECT posts.id, posts.user_id, posts.name FROM posts",
+            "SELECT users.id, users.name FROM users WHERE (id IN('1', '2'))"
         ));
     }
 
@@ -104,7 +104,7 @@ class EagerLoadingTest extends TestCase
         $this->assertSame($expected, $permissions1->toArray());
 
         $this->assertSame(Statement::getQueriesLog(), array(
-            "SELECT id, name FROM users",
+            "SELECT users.id, users.name FROM users",
             "SELECT user_permissions.user_id, id, name FROM permissions"
             . " INNER JOIN user_permissions ON user_permissions.permission_id = permissions.id"
             . " WHERE (user_permissions.user_id IN('1', '2', '3', '4')) ORDER BY id DESC"
