@@ -221,4 +221,25 @@ class ModelInstanceTest extends TestCase
             "SELECT * FROM users WHERE (id = '1')"
         ));
     }
+
+    public function testTransformValue()
+    {
+        $user = $this->getMock('LazyTest\Db\Model\User', array('setName', 'getName'));
+        $user->expects($this->once())
+            ->method('setName')
+            ->with($this->equalTo('foo'))
+            ->will($this->returnValue('bar'));
+
+        $user->expects($this->exactly(3))
+            ->method('getName')
+            ->with($this->equalTo('bar'))
+            ->will($this->returnValue('foo'));
+
+        $user->fromArray(array('name' => 'foo'));
+        $this->assertSame('foo', $user->name);
+        $this->assertSame('foo', $user->name);
+        $user->save();
+        $user->refresh();
+        $this->assertSame('foo', $user->name);
+    }
 }

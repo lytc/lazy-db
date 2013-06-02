@@ -97,15 +97,15 @@ class EagerLoadingTest extends TestCase
         $this->assertCount(0, $permissions4);
 
         $expected = array(
-            array('user_id' => '1', 'id' => '2', 'name' => 'name2'),
-            array('user_id' => '1', 'id' => '1', 'name' => 'name1'),
+            array('id' => '2', 'name' => 'name2', 'user_id' => '1'),
+            array('id' => '1', 'name' => 'name1', 'user_id' => '1'),
         );
 
         $this->assertSame($expected, $permissions1->toArray());
 
         $this->assertSame(Statement::getQueriesLog(), array(
             "SELECT users.id, users.name FROM users",
-            "SELECT user_permissions.user_id, id, name FROM permissions"
+            "SELECT permissions.id, permissions.name, user_permissions.user_id FROM permissions"
             . " INNER JOIN user_permissions ON user_permissions.permission_id = permissions.id"
             . " WHERE (user_permissions.user_id IN('1', '2', '3', '4')) ORDER BY id DESC"
         ));

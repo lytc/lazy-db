@@ -271,6 +271,16 @@ abstract class AbstractModel
     protected static $primaryKey = 'id';
 
     /**
+     * @var bool
+     */
+    public static $disableTransformValue = false;
+
+    /**
+     * @var bool
+     */
+    public static $autoCreatedTime = true;
+
+    /**
      * @var Connection
      */
     protected static $connection;
@@ -802,6 +812,20 @@ abstract class AbstractModel
         return !!$this->dirtyData;
     }
 
+    protected function transformValue($name, $value)
+    {
+        if (static::$disableTransformValue) {
+            return $value;
+        }
+
+        $getter = 'get' . Inflector::classify($name);
+        if (method_exists($this, $getter)) {
+            return $this->{$getter}($value);
+        }
+
+        return $value;
+    }
+
     /**
      * @param string $name
      * @return string|Collection
@@ -811,11 +835,11 @@ abstract class AbstractModel
     {
         $nameUnderscore = Inflector::tableize($name);
         if (array_key_exists($nameUnderscore, $this->dirtyData)) {
-            return $this->dirtyData[$nameUnderscore];
+            return $this->transformValue($name, $this->dirtyData[$nameUnderscore]);
         }
 
         if (array_key_exists($nameUnderscore, $this->data)) {
-            return $this->data[$nameUnderscore];
+            return $this->transformValue($name, $this->data[$nameUnderscore]);
         }
 
         if (array_key_exists($name, $this->associationData)) {
@@ -825,7 +849,6 @@ abstract class AbstractModel
         # lazy load
         if (array_key_exists($nameUnderscore, static::getColumnSchema())) {
             $primaryKey = static::getPrimaryKey();
-            $tableName = static::getTableName();
 
             if ($this->collection) {
                 $ids = $this->collection->column($primaryKey);
@@ -840,13 +863,13 @@ abstract class AbstractModel
                     $model = $this->collection->get($id);
                     $model->set($nameUnderscore, $pairs[$id], false, false);
                 }
-                return $pairs[$this->id()];
+                return $this->transformValue($name, $pairs[$this->id()]);
             } else {
                 $lazyLoadSelect = static::createSqlSelect($nameUnderscore);
                 $lazyLoadSelect->where(array($primaryKey => $this->id()));
                 $value = $lazyLoadSelect->fetchColumn();
                 $this->data[$nameUnderscore] = $value;
-                return $value;
+                return $this->transformValue($name, $value);
             }
         }
 
@@ -951,8 +974,8 @@ abstract class AbstractModel
             if ($this->collection) {
                 $thisId = $this->id();
                 $ids = $this->collection->column(static::getPrimaryKey());
-                $select = $model::createSqlSelect("$throughTableName.$leftKey")
-                    ->column($model::getDefaultSelectColumns())
+                $select = $model::createSqlSelect()
+                    ->column("$throughTableName.$leftKey")
                     ->where(array("$throughTableName.$leftKey IN(?)" => $ids))
                     ->join($throughTableName, "$throughTableName.$rightKey = $tableName.$primaryKey");
 
@@ -1028,6 +1051,11 @@ abstract class AbstractModel
         if (static::getManyToOneSchema($name)) {
             $this->associationData[$name] = $value;
             return $this;
+        }
+
+        $setter = 'set' . Inflector::classify($name);
+        if (method_exists($this, $setter)) {
+            $value = $this->{$setter}($value);
         }
 
         if (array_key_exists($nameUnderscore, $this->data)) {
@@ -1164,6 +1192,13 @@ abstract class AbstractModel
                 throw new Exception('Trying to save an empty row');
             }
 
+            if (isset(static::$autoCreatedTime)) {
+                $createdTime = static::getColumnSchema('created_time');
+                if ($createdTime && $createdTime['type'] = self::TYPE_DATETIME) {
+                    $this->createdTime = new Expr('NOW()');
+                }
+            }
+
             $this->getSqlInsert()
                 ->value($this->dirtyData)
                 ->exec();
@@ -1196,6 +1231,7 @@ abstract class AbstractModel
                 $this->select->where(array(static::getPrimaryKey() => $this->id()));
             }
 
+            $this->dirtyData = array();
             $this->data = $this->select->fetch(\PDO::FETCH_ASSOC);
         }
 
@@ -1213,9 +1249,16 @@ abstract class AbstractModel
         }
 
         $this->beforeDelete();
-        $delete = $this->getSqlDelete();
-        $delete->where(array(static::getPrimaryKey() => $this->id()));
-        $delete->exec();
+
+        if (isset(static::$softDelete) && static::$softDelete) {
+            $field = is_string(static::$softDelete)? static::$softDelete : 'deleted';
+            $this->{$field} = 1;
+            $this->save();
+        } else {
+            $delete = $this->getSqlDelete();
+            $delete->where(array(static::getPrimaryKey() => $this->id()));
+            $delete->exec();
+        }
         $this->afterDelete();
         return $this;
     }

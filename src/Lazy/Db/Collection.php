@@ -211,6 +211,15 @@ class Collection implements \Countable, \Iterator
         }
     }
 
+    public function delete()
+    {
+        foreach ($this as $model) {
+            $model->delete();
+        }
+
+        return $this;
+    }
+
     public function countAll()
     {
         if (null === $this->countAll) {

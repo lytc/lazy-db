@@ -96,6 +96,37 @@ class Select
         return $args? $this : $result;
     }
 
+    public function __clone()
+    {
+        if ($this->join) {
+            $this->join = clone $this->join;
+        }
+
+        if ($this->where) {
+            $this->where = clone $this->where;
+        }
+
+        if ($this->group) {
+            $this->group = clone $this->group;
+        }
+
+        if ($this->having) {
+            $this->having = clone $this->having;
+        }
+
+        if ($this->order) {
+            $this->order = clone $this->order;
+        }
+
+        if ($this->limit) {
+            $this->limit = clone $this->limit;
+        }
+
+        if ($this->offset) {
+            $this->offset = clone $this->offset;
+        }
+    }
+
     /**
      * @return Connection
      */
