@@ -147,6 +147,18 @@ class WhereTest extends TestCase
         $this->assertEquals("WHERE (foo LIKE '%foo\'bar%')", $where->toString());
     }
 
+    public function testSmartBinding()
+    {
+        $where = new Where($this->connection);
+        $where->where(array(
+            'foo' => 'foo',
+            'bar' => null
+        ));
+
+        $expected = "WHERE (foo = 'foo' AND bar IS NULL)";
+        $this->assertEquals($expected, $where->toString());
+    }
+
     public function testReset()
     {
         $where = new Where($this->connection);

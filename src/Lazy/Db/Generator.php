@@ -153,6 +153,10 @@ class Generator
         $abstractModelDirectory = $this->getDirectory() . '/AbstractModel';
         $fileName = $abstractModelDirectory . '/' . $rootAbstractModelClassName . '.php';
 
+        if (file_exists($fileName)) {
+            return;
+        }
+
         $classContentParts = array('<?php');
 
         if ($namespace) {

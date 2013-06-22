@@ -833,7 +833,12 @@ abstract class AbstractModel
      */
     public function __get($name)
     {
-        $nameUnderscore = Inflector::tableize($name);
+        if (!array_key_exists($name, static::$columns)) {
+            $nameUnderscore = Inflector::tableize($name);
+        } else {
+            $nameUnderscore = $name;
+        }
+
         if (array_key_exists($nameUnderscore, $this->dirtyData)) {
             return $this->transformValue($name, $this->dirtyData[$nameUnderscore]);
         }
@@ -933,6 +938,7 @@ abstract class AbstractModel
                 $refKey = $manyToOneSchema['key'];
 
                 $foreignKeyValue = $this->{$refKey};
+
                 $pairs = $this->collection->pair($primaryKey, $refKey);
                 $select = $refModel::createSqlSelect();
                 $select->where(array("$primaryKey IN(?)" => array_unique(array_values($pairs))));
@@ -948,7 +954,9 @@ abstract class AbstractModel
                 }
 
                 foreach ($pairs as $id => $foreignKeyValue) {
-                    $this->collection->get($id)->set($name, $rowPairs[$foreignKeyValue]);
+                    if ($foreignKeyValue) {
+                        $this->collection->get($id)->set($name, $rowPairs[$foreignKeyValue]);
+                    }
                 }
 
                 return $return;
@@ -1029,7 +1037,11 @@ abstract class AbstractModel
      */
     public function set($name, $value, $integrityCheck = true, $dirty = true)
     {
-        $nameUnderscore = Inflector::tableize($name);
+        if (!array_key_exists($name, static::$columns)) {
+            $nameUnderscore = Inflector::tableize($name);
+        } else {
+            $nameUnderscore = $name;
+        }
 
         if ($integrityCheck) {
             $columnSchemas = static::getColumnSchema();
@@ -1112,6 +1124,20 @@ abstract class AbstractModel
         } else {
             return $this->dirtyData;
         }
+    }
+
+    public function __clone()
+    {
+        # load all data
+        $unloadColumns = array_keys(array_diff_key(static::getColumnSchema(), $this->data));
+        if ($unloadColumns) {
+            $select = static::createSqlSelect($unloadColumns);
+            $select->where([self::getPrimaryKey() => $this->id()]);
+            $this->data = array_merge($this->data, $select->fetch(\PDO::FETCH_ASSOC));
+        }
+
+        unset($this->data[static::getPrimaryKey()]);
+        $this->dirtyData = $this->data;
     }
 
     // @codeCoverageIgnoreStart

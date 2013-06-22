@@ -126,9 +126,11 @@ class Connection extends PDO
      */
     public function __construct($dsn, $username = null, $password = null, array $options = array())
     {
+        $options[\PDO::MYSQL_ATTR_INIT_COMMAND] = "SET NAMES 'utf8'";
         parent::__construct($dsn, $username, $password, $options);
         $this->setAttribute(self::ATTR_ERRMODE, self::ERRMODE_EXCEPTION);
         $this->setAttribute(self::ATTR_STATEMENT_CLASS, array(__NAMESPACE__ . '\\Statement'));
+
     }
 
     /**

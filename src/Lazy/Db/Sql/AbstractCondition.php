@@ -73,6 +73,15 @@ abstract class AbstractCondition
             if (is_numeric($condition)) {
                 $condition = $bindParams;
                 $bindParams = null;
+            } else {
+                if (preg_match('/^\w+\.?\w+$/', $condition)) {
+                    if (null === $bindParams) {
+                        $condition = "$condition IS NULL";
+                    } else {
+                        $condition = "$condition = ?";
+                    }
+                }
+
             }
 
             if (null !== $bindParams) {
@@ -80,9 +89,6 @@ abstract class AbstractCondition
             }
 
             if ($bindParams) {
-                if (preg_match('/^\w+\.?\w+$/', $condition)) {
-                    $condition = "$condition = ?";
-                }
                 $condition = $this->bind($condition, $bindParams);
             }
 
@@ -108,6 +114,7 @@ abstract class AbstractCondition
         foreach ($bindParams as &$value) {
             $value = $this->connection->quote($value);
         }
+
         $index = 0;
         return preg_replace_callback(array('/\(?(\?|\:(\w+))\)?([^\w]*)/', '/\(?(\?|\:(\w+))\)?$/'), function($matches) use(&$index, $bindParams) {
             if (preg_match('/^\((\?|\:(\w+))\)$/', $matches[0], $m)) {
