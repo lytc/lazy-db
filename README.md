@@ -1,3 +1,10 @@
+THIS PROJECT DOESN'T MAINTAIN ANYMORE
+
+I'M RECOMMEND TO USE [LAZY FRAMEWORK](https://github.com/lytc/lazy) INSTEAD.
+
+
+
+
 [![Build Status](https://travis-ci.org/lytc/lazy-db.png?branch=master)](https://travis-ci.org/lytc/lazy-db)
 #Lazy/Db is an Object Relational Mapper written in PHP
 
